@@ -198,5 +198,21 @@ Wire Wire Line
 Wire Wire Line
 	4300 3550 5250 3550
 Text Notes 7000 2500 0    50   ~ 0
-UART-RS458 adapter is based on MAX485, and requried >5V operation voltage.\n\nFor convinience, UART-RS232 is also powered from 5V\n\nOutput voltage of RS485 UART converter is 3.5V, so 5V tolerant pins are required on MCU\nto interface with it\n\nInput voltage of RS485 UART converter in compliant with 3.3V logic\n\nPin config:\n - PB10/PB11 - UART3 TX/UART3 RX - 5V Tolerant\n
+UART-RS458 adapter is based on MAX485, and requried >5V operation voltage.\n\nFor convinience, UART-RS232 is also powered from 5V\n\nRS232 module requires RX-to-RX and TX-to-TX connection when interfacing with MCU. \nThis is how real module works.\n\nOutput voltage of RS485 UART converter is 3.5V, so 5V tolerant pins are required on MCU\nto interface with it.\n\nInput voltage of RS485 UART converter in compliant with 3.3V logic.\n\nPin config:\n - PB10/PB11 - UART3 TX/UART3 RX - 5V Tolerant\n - PA9/PA10 - UART1 TX/UART1 RX - 5V Tolerant \n
+Wire Wire Line
+	5200 4500 4800 4500
+Wire Wire Line
+	4800 4600 5200 4600
+Text Label 2300 3550 0    50   ~ 0
+TERM_TX
+Wire Wire Line
+	2800 3550 2300 3550
+Text Label 4800 4600 0    50   ~ 0
+TERM_TX
+Text Label 4800 4500 0    50   ~ 0
+TERM_RX
+Text Label 2300 3650 0    50   ~ 0
+TERM_RX
+Wire Wire Line
+	2800 3650 2300 3650
 $EndSCHEMATC

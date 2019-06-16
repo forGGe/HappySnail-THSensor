@@ -7,7 +7,6 @@ prepare:
 	arduino-cli core install stm32duino:STM32F1
 
 bat:
-	echo "sadasd"
 	mkdir -p ./bat/build
 	arduino-cli compile -v -b stm32duino:STM32F1:genericSTM32F103C:cpu_speed=speed_72mhz,opt=osstd,upload_method=STLinkMethod ./bat
 	mv -v ./bat/*.bin ./bat/*.elf ./bat/build
