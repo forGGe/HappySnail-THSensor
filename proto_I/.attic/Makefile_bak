@@ -1,0 +1,44 @@
+.PHONY: all clean bat
+
+MKFILE_PATH 		:= $(abspath $(MAKEFILE_LIST))
+COMMON_PATH 		:= $(abspath $(MKFILE_PATH)/../../common/arduino)
+MODBUS_PATH 		:= $(COMMON_PATH)/modbus
+MKFILE_DIR 			:= $(dir $(MKFILE_PATH))
+BAT_PATH 			:= $(MKFILE_DIR)/bat
+
+$(info COMMON_PATH=$(COMMON_PATH))
+
+EXTRA_COMPILE_FLAGS := \
+	-I$(BAT_PATH) -DENABLE_HWSERIAL3 -DCONFIG_MAPLE_MINI_NO_DISABLE_DEBUG=1 -DSERIAL_USB \
+	-DGENERIC_BOOTLOADER -DMCU_STM32F103C8 -mthumb -march=armv7-m -D__STM32F1__ -DARDUINO_ARCH_STM32
+
+all: bat
+
+prepare:
+	arduino-cli --config-file $(BAT_PATH)/arduino-cli.yaml core update-index
+	arduino-cli --config-file $(BAT_PATH)/arduino-cli.yaml core install STM32:stm32
+	arduino-cli lib update-index
+	arduino-cli lib install "Bolder Flight Systems BME280"
+
+bat:
+	mkdir -p $(BAT_PATH)/build
+	ln -fs $(MODBUS_PATH)/* $(BAT_PATH)/
+
+	# ln -sf $(MODBUS_PATH)/Modbus.cpp $(BAT_PATH)/Modbus.cpp
+	# --build-properties build.extra_flags="$(EXTRA_COMPILE_FLAGS)" \
+	# ln -sf $(MODBUS_PATH)/ModbusSerial.h $(BAT_PATH)/ModbusSerial.h
+	# ln -sf $(MODBUS_PATH)/ModbusSerial.cpp $(BAT_PATH)/ModbusSerial.cpp
+	# /tmp/arduino-sketch-F051C3B444581494640364A6B894C408/sketch/bat.ino.cpp.o
+
+	arduino-cli compile -v \
+		-b STM32:stm32:GenF1:pnum=BLUEPILL_F103C8 \
+		$(BAT_PATH)
+	mv -v $(BAT_PATH)/*.hex $(BAT_PATH)/build
+	rm -vf $(BAT_PATH)/Modbus*
+
+flash_bat: bat
+	st-flash erase
+	st-flash --format ihex write $(BAT_PATH)/build/bat.STM32.stm32.GenF1.hex
+
+clean:
+	rm -rvf $(BAT_PATH)/build/*

@@ -1,5 +1,0 @@
-board_manager:
-  additional_urls:
-    - http://dan.drown.org/stm32duino/package_STM32duino_index.json
-
-

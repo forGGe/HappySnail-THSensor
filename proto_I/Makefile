@@ -1,19 +1,35 @@
 .PHONY: all clean bat
 
+MKFILE_PATH 		:= $(abspath $(MAKEFILE_LIST))
+MKFILE_DIR 			:= $(dir $(MKFILE_PATH))
+BAT_PATH 			:= $(MKFILE_DIR)/bat_zephyr
+ZEPHYR_BASE			?= zephyr
+WEST_PATH			?= ~/.local/bin/west
+
+export ZEPHYR_TOOLCHAIN_VARIANT 	= gnuarmemb
+export GNUARMEMB_TOOLCHAIN_PATH 	= /usr
+
+$(info ZEPHYR_TOOLCHAIN_VARIANT	=$(ZEPHYR_TOOLCHAIN_VARIANT))
+$(info GNUARMEMB_TOOLCHAIN_PATH	=$(GNUARMEMB_TOOLCHAIN_PATH))
+$(info ZEPHYR_BASE				=$(ZEPHYR_BASE))
+
 all: bat
 
-prepare:
-	arduino-cli core update-index
-	arduino-cli core install stm32duino:STM32F1
-
 bat:
-	mkdir -p ./bat/build
-	arduino-cli compile -v -b stm32duino:STM32F1:genericSTM32F103C:cpu_speed=speed_72mhz,opt=osstd,upload_method=STLinkMethod ./bat
-	mv -v ./bat/*.bin ./bat/*.elf ./bat/build
+	. $(ZEPHYR_BASE)/zephyr-env.sh
+	~/.local/bin/west -v build -b stm32_min_dev -d $(BAT_PATH)/build $(BAT_PATH)/
 
-flash_bat: bat
-	st-flash erase
-	st-flash write ./bat/build/bat.stm32duino.STM32F1.genericSTM32F103C.bin 0x8000000
+bat_flash: bat
+	st-info --probe
+	sleep 1
+	st-flash write $(BAT_PATH)/build/zephyr/zephyr.bin 0x8000000
+
+#	st-flash erase
+#	st-flash --format ihex write $(BAT_PATH)/build/bat.STM32.stm32.GenF1.hex
+
+bat_config:
+	. $(ZEPHYR_BASE)/zephyr-env.sh
+	ninja -C $(BAT_PATH)/build menuconfig
 
 clean:
-	rm ./bat/build/*
+	~/.local/bin/west build -b stm32_min_dev -t pristine -d $(BAT_PATH)/build $(BAT_PATH)/
