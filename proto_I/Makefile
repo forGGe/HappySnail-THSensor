@@ -9,9 +9,9 @@ WEST_PATH			?= ~/.local/bin/west
 export ZEPHYR_TOOLCHAIN_VARIANT 	= gnuarmemb
 export GNUARMEMB_TOOLCHAIN_PATH 	= /usr
 
-$(info ZEPHYR_TOOLCHAIN_VARIANT	=$(ZEPHYR_TOOLCHAIN_VARIANT))
-$(info GNUARMEMB_TOOLCHAIN_PATH	=$(GNUARMEMB_TOOLCHAIN_PATH))
-$(info ZEPHYR_BASE				=$(ZEPHYR_BASE))
+$(info ZEPHYR_TOOLCHAIN_VARIANT  =$(ZEPHYR_TOOLCHAIN_VARIANT))
+$(info GNUARMEMB_TOOLCHAIN_PATH  =$(GNUARMEMB_TOOLCHAIN_PATH))
+$(info ZEPHYR_BASE               =$(ZEPHYR_BASE))
 
 all: bat
 
@@ -23,9 +23,6 @@ bat_flash: bat
 	st-info --probe
 	sleep 1
 	st-flash write $(BAT_PATH)/build/zephyr/zephyr.bin 0x8000000
-
-#	st-flash erase
-#	st-flash --format ihex write $(BAT_PATH)/build/bat.STM32.stm32.GenF1.hex
 
 bat_config:
 	. $(ZEPHYR_BASE)/zephyr-env.sh

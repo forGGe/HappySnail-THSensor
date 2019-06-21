@@ -4,23 +4,6 @@
 	model = "STM32 Minimum Development Board";
 	compatible = "st,stm32_min_dev", "st,stm32f103c8";
 
-	soc {
-		pinctrl: pin-controller@40010800 {
-			usart1_pins_a: usart1_a {
-				rx_tx {
-					rx = <STM32_PIN_PA10 STM32_PIN_USART_RX>;
-					tx = <STM32_PIN_PA9 STM32_PIN_USART_TX>;
-				};
-			};
-			usart2_pins_a: usart2_a {
-				rx_tx {
-					rx = <STM32_PIN_PA3 STM32_PIN_USART_RX>;
-					tx = <STM32_PIN_PA2 STM32_PIN_USART_TX>;
-				};
-			};
-		};
-	};
-
 	chosen {
 		zephyr,console = &usart2;
 		zephyr,shell-uart = &usart2;
