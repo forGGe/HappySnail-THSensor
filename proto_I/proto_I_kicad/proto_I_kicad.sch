@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:proto_I_kicad-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
@@ -60,35 +61,29 @@ $EndComp
 Wire Wire Line
 	7850 3550 8000 3550
 Wire Wire Line
-	7000 4700 6900 4700
+	6450 5450 8000 5450
 Wire Wire Line
-	6900 4700 6900 5450
+	4850 5300 4850 5450
 Wire Wire Line
-	6900 5450 8000 5450
+	4850 5450 5650 5450
+Connection ~ 6450 5450
 Wire Wire Line
-	3700 5300 3700 5450
+	5450 3050 5650 3050
 Wire Wire Line
-	3700 5450 6150 5450
-Connection ~ 6900 5450
+	5650 3050 5650 3150
+Connection ~ 5650 5450
 Wire Wire Line
-	4300 3050 6150 3050
+	5650 5450 6450 5450
 Wire Wire Line
-	6150 3050 6150 3150
-Connection ~ 6150 5450
+	5450 3150 5650 3150
+Connection ~ 5650 3150
 Wire Wire Line
-	6150 5450 6900 5450
+	3950 4850 3800 4850
 Wire Wire Line
-	4300 3150 6150 3150
-Connection ~ 6150 3150
+	3800 4850 3800 5450
 Wire Wire Line
-	6150 3150 6150 5450
-Wire Wire Line
-	2800 4850 2650 4850
-Wire Wire Line
-	2650 4850 2650 5450
-Wire Wire Line
-	2650 5450 3700 5450
-Connection ~ 3700 5450
+	3800 5450 4850 5450
+Connection ~ 4850 5450
 Wire Wire Line
 	7900 4550 8000 4550
 Wire Wire Line
@@ -126,147 +121,195 @@ Wire Wire Line
 $Comp
 L power:GND #PWR?
 U 1 1 5D067DA9
-P 6900 5600
-F 0 "#PWR?" H 6900 5350 50  0001 C CNN
-F 1 "GND" H 6905 5427 50  0000 C CNN
-F 2 "" H 6900 5600 50  0001 C CNN
-F 3 "" H 6900 5600 50  0001 C CNN
-	1    6900 5600
+P 6450 5600
+F 0 "#PWR?" H 6450 5350 50  0001 C CNN
+F 1 "GND" H 6455 5427 50  0000 C CNN
+F 2 "" H 6450 5600 50  0001 C CNN
+F 3 "" H 6450 5600 50  0001 C CNN
+	1    6450 5600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6900 5450 6900 5600
-Wire Wire Line
-	7000 4400 6900 4400
-Wire Wire Line
-	6900 4400 6900 2500
+	6450 5450 6450 5600
 Wire Wire Line
 	7850 3250 8000 3250
 Wire Wire Line
 	8000 3250 8000 2500
 Wire Wire Line
-	2800 4750 2650 4750
-Connection ~ 6900 2500
+	3950 4750 3800 4750
+Connection ~ 6450 2500
 Wire Wire Line
-	6900 2500 8000 2500
+	6450 2500 8000 2500
 $Comp
 L power:+5V #PWR?
 U 1 1 5D06A941
-P 6900 2400
-F 0 "#PWR?" H 6900 2250 50  0001 C CNN
-F 1 "+5V" H 6915 2573 50  0000 C CNN
-F 2 "" H 6900 2400 50  0001 C CNN
-F 3 "" H 6900 2400 50  0001 C CNN
-	1    6900 2400
+P 6450 2400
+F 0 "#PWR?" H 6450 2250 50  0001 C CNN
+F 1 "+5V" H 6465 2573 50  0000 C CNN
+F 2 "" H 6450 2400 50  0001 C CNN
+F 3 "" H 6450 2400 50  0001 C CNN
+	1    6450 2400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6900 2500 6900 2400
+	6450 2500 6450 2400
+Text Notes 7250 2150 0    50   ~ 0
+UART-RS458 adapter is based on MAX485, and requried >5V operation voltage.\n\nRS232 module requires RX-to-RX and TX-to-TX connection when interfacing with MCU. \nThis is how real module works.\n\nOutput voltage of RS485 UART converter is 3.5V, so 5V tolerant pins are required on MCU\nto interface with it. RS232 converter is using 3V power rail, can be connected to 3.3V-tolerant pins\n\nInput voltage of RS485 UART converter in compliant with 3.3V logic.\n\nPin config:\n - PA9/PA10 - UART1 TX/UART1 RX - 5V Tolerant\n - PA2/PA3 - UART2 TX/UART2 RX \n - PB6/PB7 - I2C1 SCL/I2C1 SDA
 Wire Wire Line
-	7050 3350 5350 3350
+	3950 3550 3350 3550
+Text Label 3350 3650 0    50   ~ 0
+RS485_RX
 Wire Wire Line
-	5350 3350 5350 3650
+	3950 3650 3350 3650
 Wire Wire Line
-	5350 3650 4300 3650
+	3800 4750 3800 2500
 Wire Wire Line
-	7050 3450 6700 3450
+	3500 4950 3500 4800
 Wire Wire Line
-	6700 3450 6700 3750
-Wire Wire Line
-	6700 3750 4300 3750
-Wire Wire Line
-	4300 3450 5250 3450
-Wire Wire Line
-	5250 3450 5250 3250
-Wire Wire Line
-	5250 3250 7050 3250
-Wire Wire Line
-	4300 3550 7050 3550
-Text Notes 8250 2500 0    50   ~ 0
-UART-RS458 adapter is based on MAX485, and requried >5V operation voltage.\n\nFor convinience, UART-RS232 is also powered from 5V\n\nRS232 module requires RX-to-RX and TX-to-TX connection when interfacing with MCU. \nThis is how real module works.\n\nOutput voltage of RS485 UART converter is 3.5V, so 5V tolerant pins are required on MCU\nto interface with it.\n\nInput voltage of RS485 UART converter in compliant with 3.3V logic.\n\nPin config:\n - PB10/PB11 - UART3 TX/UART3 RX - 5V Tolerant\n - PA9/PA10 - UART1 TX/UART1 RX - 5V Tolerant \n
-Wire Wire Line
-	7000 4500 6600 4500
-Wire Wire Line
-	6600 4600 7000 4600
-Text Label 2300 3550 0    50   ~ 0
-TERM_TX
-Wire Wire Line
-	2800 3550 2300 3550
-Text Label 6600 4600 0    50   ~ 0
-TERM_TX
-Text Label 6600 4500 0    50   ~ 0
-TERM_RX
-Text Label 2300 3650 0    50   ~ 0
-TERM_RX
-Wire Wire Line
-	2800 3650 2300 3650
-Wire Wire Line
-	2650 4750 2650 2500
-Wire Wire Line
-	2550 3950 2550 4450
-Wire Wire Line
-	2800 3950 2550 3950
-$Comp
-L Sensor:BME280 U?
-U 1 1 5D09E0F0
-P 5550 4700
-F 0 "U?" H 5150 4250 50  0000 C CNN
-F 1 "BME280" H 5150 4150 50  0000 C CNN
-F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 5550 4500 50  0001 C CNN
-F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf" H 5550 4500 50  0001 C CNN
-	1    5550 4700
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	2350 4950 2350 4800
-Wire Wire Line
-	2350 4950 2800 4950
+	3500 4950 3950 4950
 $Comp
 L power:+3.3V #PWR?
 U 1 1 5D0D8B31
-P 2350 4800
-F 0 "#PWR?" H 2350 4650 50  0001 C CNN
-F 1 "+3.3V" H 2365 4973 50  0000 C CNN
-F 2 "" H 2350 4800 50  0001 C CNN
-F 3 "" H 2350 4800 50  0001 C CNN
-	1    2350 4800
+P 3500 4800
+F 0 "#PWR?" H 3500 4650 50  0001 C CNN
+F 1 "+3.3V" H 3515 4973 50  0000 C CNN
+F 2 "" H 3500 4800 50  0001 C CNN
+F 3 "" H 3500 4800 50  0001 C CNN
+	1    3500 4800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2650 2500 6900 2500
+	3800 2500 6450 2500
 $Comp
 L Project:STM32_BluePill U?
 U 1 1 5D05CADE
-P 3550 3900
-F 0 "U?" H 3550 5065 50  0000 C CNN
-F 1 "STM32_BluePill" H 3550 4974 50  0000 C CNN
-F 2 "" H 3550 4400 50  0001 C CNN
-F 3 "https://wiki.stm32duino.com/index.php?title=Blue_Pill" H 3550 4400 50  0001 C CNN
-	1    3550 3900
+P 4700 3900
+F 0 "U?" H 4700 5065 50  0000 C CNN
+F 1 "STM32_BluePill" H 4700 4974 50  0000 C CNN
+F 2 "" H 4700 4400 50  0001 C CNN
+F 3 "https://wiki.stm32duino.com/index.php?title=Blue_Pill" H 4700 4400 50  0001 C CNN
+	1    4700 3900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4300 3850 4600 3850
+	3700 4550 3700 4450
 Wire Wire Line
-	4800 4400 4950 4400
+	3700 4450 3950 4450
+Connection ~ 3800 5450
 Wire Wire Line
-	4950 4600 4700 4600
+	3300 4150 3300 5450
+Connection ~ 3300 5450
 Wire Wire Line
-	4700 4600 4700 4050
+	3300 5450 3800 5450
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5D114029
+P 2200 3700
+F 0 "#PWR?" H 2200 3550 50  0001 C CNN
+F 1 "+3.3V" H 2215 3873 50  0000 C CNN
+F 2 "" H 2200 3700 50  0001 C CNN
+F 3 "" H 2200 3700 50  0001 C CNN
+	1    2200 3700
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	4700 4050 4300 4050
+	2200 3700 2200 3750
 Wire Wire Line
-	4950 4800 4600 4800
+	2200 3750 2400 3750
+Connection ~ 2200 3750
 Wire Wire Line
-	4600 4800 4600 3850
+	2200 5450 3300 5450
 Wire Wire Line
-	4800 4400 4800 3950
+	2400 5200 2200 5200
+Connection ~ 2200 5200
 Wire Wire Line
-	4800 3950 4300 3950
+	2200 5200 2200 5450
 Wire Wire Line
-	4950 5000 4450 5000
+	2400 3750 2400 3850
 Wire Wire Line
-	4450 5000 4450 4150
+	2400 5050 2400 5200
 Wire Wire Line
-	4450 4150 4300 4150
+	2200 3750 2200 3850
+Wire Wire Line
+	2900 4150 3300 4150
+Wire Wire Line
+	3950 4350 2900 4350
+Wire Wire Line
+	2900 4550 3700 4550
+Wire Wire Line
+	2200 5050 2200 5200
+$Comp
+L Sensor:BME280 U?
+U 1 1 5D09E0F0
+P 2300 4450
+F 0 "U?" H 1900 4000 50  0000 C CNN
+F 1 "BME280" H 1900 3900 50  0000 C CNN
+F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 2300 4250 50  0001 C CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf" H 2300 4250 50  0001 C CNN
+	1    2300 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 3750 3050 3750
+Wire Wire Line
+	3050 3750 3050 4750
+Wire Wire Line
+	3050 4750 2900 4750
+Connection ~ 2400 3750
+Text Label 3350 3550 0    50   ~ 0
+RS485_TX
+Text Label 6600 3550 0    50   ~ 0
+RS485_TX
+Wire Wire Line
+	6600 3550 7050 3550
+Text Label 6600 3250 0    50   ~ 0
+RS485_RX
+Wire Wire Line
+	5450 4050 6200 4050
+Wire Wire Line
+	6200 4050 6200 3450
+Wire Wire Line
+	5650 3150 5650 5450
+Wire Wire Line
+	6450 4700 6450 5450
+Wire Wire Line
+	7000 4700 6450 4700
+Wire Wire Line
+	5450 4250 6200 4250
+Wire Wire Line
+	6200 4250 6200 4500
+Wire Wire Line
+	6200 4500 7000 4500
+Wire Wire Line
+	5450 4350 6100 4350
+Wire Wire Line
+	6100 4350 6100 4600
+Wire Wire Line
+	6100 4600 7000 4600
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5D16AB3A
+P 6900 4300
+F 0 "#PWR?" H 6900 4150 50  0001 C CNN
+F 1 "+3.3V" H 6915 4473 50  0000 C CNN
+F 2 "" H 6900 4300 50  0001 C CNN
+F 3 "" H 6900 4300 50  0001 C CNN
+	1    6900 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 4300 6900 4400
+Wire Wire Line
+	6900 4400 7000 4400
+Wire Wire Line
+	6600 3250 7050 3250
+Wire Wire Line
+	7050 3450 6900 3450
+Wire Wire Line
+	7050 3350 6900 3350
+Wire Wire Line
+	6900 3350 6900 3450
+Connection ~ 6900 3450
+Wire Wire Line
+	6900 3450 6200 3450
 $EndSCHEMATC

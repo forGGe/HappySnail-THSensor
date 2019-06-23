@@ -6,6 +6,8 @@ Happy Snail TH-Sensor: Prototype I
 Basic Acceptance Test Procedure
 *******************************
 
+1. Install ``west`` and `Zephyr v1.14.0`_
+
 1. Build an image::
 
      export ZEPHYR_BASE=/path/to/zephyr/repo
@@ -55,7 +57,7 @@ Basic Acceptance Test Procedure
 
    Device::
 
-      ÿ***** Booting Zephyr OS zephyr-v1.14.0 *****
+      ***** Booting Zephyr OS zephyr-v1.14.0 *****
       Hello World! stm32_min_dev
       bme280_dev 0x2000137c name BME280
 
@@ -75,3 +77,5 @@ Basic Acceptance Test Procedure
       > sending: :2A030C001A001E0064001500250000F1
 
       response sent
+
+.. _`Zephyr v1.14.0`: https://docs.zephyrproject.org/latest/getting_started/index.html
