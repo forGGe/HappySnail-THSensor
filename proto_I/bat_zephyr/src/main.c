@@ -8,6 +8,7 @@
 #include <device.h>
 #include <sensor.h>
 #include <stdio.h>
+#include <gpio.h>
 #include <misc/printk.h>
 #include <assert.h>
 #include <uart.h>
@@ -33,12 +34,12 @@ enum modbus_regs
 /* Test functions, used in this BAT */
 enum modbus_fn
 {
-	MODBUS_FN_READ_COIL			= 0x1,
 /* Not supported (yet)
+	MODBUS_FN_READ_COIL			= 0x1,
 	MODBUS_FN_READ_INPUT_STATUS		= 0x2,
-	MODBUS_FN_READ_HOLDING_REG		= 0x3,
 	MODBUS_FN_READ_INPUT_REG		= 0x4,
 */
+	MODBUS_FN_READ_HOLDING_REG		= 0x3,
 };
 
 enum modbus_state
@@ -51,18 +52,18 @@ enum modbus_state
 
 struct modbus_frame
 {
-	uint8_t data[256];
-	uint8_t cnt;
+	u8_t data[256];
+	u8_t cnt;
 	enum modbus_state state;
 };
 
 struct modbus_data
 {
-	uint8_t addr;
-	uint8_t fn;
+	u8_t addr;
+	u8_t fn;
 	uint16_t obj_addr;
 	uint16_t qty;
-	uint8_t crc;
+	u8_t crc;
 	bool complete;
 };
 
@@ -76,15 +77,15 @@ static uint32_t hexchunk_toul(const char *start, size_t qty)
 }
 
 /* TODO: ugly */
-static uint8_t modbus_lrc(const uint8_t *data, size_t sz)
+static u8_t modbus_lrc(const u8_t *data, size_t sz)
 {
-	uint8_t lrc = 0;
+	u8_t lrc = 0;
 
 	for (size_t i = 0; i < sz; i += 2) {
 		lrc += hexchunk_toul(&data[i], 2);
 	}
 
-	return (uint8_t)(-lrc);
+	return (u8_t)(-lrc);
 }
 
 static int modbus_process_raw_frame(struct modbus_frame *buf, struct modbus_data *out)
@@ -97,8 +98,8 @@ static int modbus_process_raw_frame(struct modbus_frame *buf, struct modbus_data
 		return -1;
 	}
 
-	uint8_t crc;
-	uint8_t calc_crc;
+	u8_t crc;
+	u8_t calc_crc;
 
 	/* TODO: better error check */
 
@@ -138,7 +139,7 @@ static int modbus_process_raw_frame(struct modbus_frame *buf, struct modbus_data
  * \retval 0 Parsing already complete.
  * \retval -1 Invalid frame detected.
  */
-static ssize_t modbus_process_raw_data(struct modbus_frame *buf, struct modbus_data *out, const uint8_t *new_data, size_t new_data_sz)
+static ssize_t modbus_process_raw_data(struct modbus_frame *buf, struct modbus_data *out, const u8_t *new_data, size_t new_data_sz)
 {
 	assert(buf != NULL);
 	assert(out != NULL);
@@ -148,7 +149,7 @@ static ssize_t modbus_process_raw_data(struct modbus_frame *buf, struct modbus_d
 
 	size_t bytes_processed = 0;
 	for (; bytes_processed < new_data_sz; ++bytes_processed) {
-		uint8_t data_byte = new_data[bytes_processed];
+		u8_t data_byte = new_data[bytes_processed];
 
 		/* Check that buffer is in valid state */
 		if (buf->cnt == sizeof(buf->data) - 1) {
@@ -231,21 +232,44 @@ static ssize_t modbus_process_raw_data(struct modbus_frame *buf, struct modbus_d
 struct drv_ctx
 {
 	struct device *dev;
+	struct device *gpio_dev;
 	struct drv_buf {
-		uint8_t data[256];
-		uint8_t cnt;
+		u8_t data[256];
+		u8_t cnt;
 	} buf;
+	struct drv_tx_buf {
+		u8_t buf[256];
+		size_t sz;
+		size_t cur;
+	} tx_buf;
 };
 
 static void uart1_irq_cb(void *user_data)
 {
 	struct drv_ctx *ctx = user_data;
+
 	uart_irq_update(ctx->dev);
 
 	if (uart_irq_rx_ready(ctx->dev)) {
 		int read = uart_fifo_read(ctx->dev, ctx->buf.data + ctx->buf.cnt,
 			ARRAY_SIZE(ctx->buf.data) - ctx->buf.cnt);
 		ctx->buf.cnt += read;
+	}
+
+	/* Check for End-of-TX */
+	if (ctx->tx_buf.cur == ctx->tx_buf.sz) {
+		ctx->tx_buf.cur = 0;
+		ctx->tx_buf.sz = 0;
+		uart_irq_tx_disable(ctx->dev);
+		/* Enable RS485 RX line and disable TX */
+		gpio_pin_write(ctx->gpio_dev, 5, 0);
+	}
+
+	if (uart_irq_tx_ready(ctx->dev)
+			&& ctx->tx_buf.sz != 0
+			&& ctx->tx_buf.cur < ctx->tx_buf.sz) {
+		int written = uart_fifo_fill(ctx->dev, &ctx->tx_buf.buf[ctx->tx_buf.cur], 1);
+		ctx->tx_buf.cur += written;
 	}
 }
 
@@ -256,16 +280,33 @@ void main(void)
 {
 	struct device *bme280_dev = device_get_binding("BME280");
 	struct device *rs485_dev = device_get_binding("UART_1");
+	struct device *gpioa = device_get_binding("GPIOA");
 
 	modbus_ctx.dev = rs485_dev;
+	modbus_ctx.gpio_dev = gpioa;
 
 	int rc;
 
 	printk("Hello World! %s\n", CONFIG_BOARD);
 
 	if (bme280_dev == NULL) {
-		printf("Could not get BME280 device\n");
+		printf("could not get BME280 device\n");
 		return;
+	}
+
+	if (gpioa == NULL) {
+		printf("could not get GPIOA device\n");
+		return;
+	}
+
+	if (rs485_dev == NULL) {
+		printf("could not get RS485 device\n");
+		return;
+	}
+
+	rc = gpio_pin_configure(gpioa, 5, GPIO_DIR_OUT);
+	if (rc < 0) {
+		printf("failed to configure GPIO pin\n");
 	}
 
 	printf("bme280_dev %p name %s\n", bme280_dev, bme280_dev->config->name);
@@ -289,7 +330,10 @@ void main(void)
 	uart_irq_rx_enable(rs485_dev);
 
 	struct modbus_frame frame = {0};
-	struct modbus_data modbus_parsed;
+	struct modbus_data modbus_parsed = {0};
+
+	/* Enable RS485 RX line and disable TX */
+	gpio_pin_write(gpioa, 5, 0);
 
 	while (1) {
 		k_cpu_idle();
@@ -314,6 +358,50 @@ void main(void)
 				printf("temp: %d.%06d; press: %d.%06d; humidity: %d.%06d\n",
 					temp.val1, temp.val2, press.val1, press.val2,
 					humidity.val1, humidity.val2);
+
+				bool retry = true;
+				do {
+					irq_disable(DT_USART_1_IRQ);
+					if (modbus_ctx.tx_buf.sz == 0) {
+						/* TODO: ugly */
+						int n = snprintf(modbus_ctx.tx_buf.buf, sizeof(modbus_ctx.tx_buf.buf),
+							":%02X%02X%02X%04X%04X%04X%04X%04X%04X",
+							MODBUS_BAT_SLAVE_ADDRESS, MODBUS_FN_READ_HOLDING_REG,
+							12, /* Total bytes to be transmitted */
+							(s16_t)temp.val1, 	(s16_t)(temp.val2 / 10000), /* Convert 10^-6 fixed-point value to 10^-2 */
+							(s16_t)press.val1,	(s16_t)(press.val2 / 10000), /* Convert 10^-6 fixed-point value to 10^-2 */
+							(s16_t)humidity.val1,	(s16_t)(humidity.val2 / 10000) /* Convert 10^-6 fixed-point value to 10^-2 */
+						);
+
+						/* TODO: ugly */
+
+						u8_t crc = modbus_lrc(modbus_ctx.tx_buf.buf + 1, n - 1);
+						n += snprintf(modbus_ctx.tx_buf.buf + n, sizeof(modbus_ctx.tx_buf.buf) - n,
+							"%02X\r\n", crc);
+						modbus_ctx.tx_buf.sz = n;
+						printf("> sending: %*s\n", modbus_ctx.tx_buf.sz, modbus_ctx.tx_buf.buf);
+						retry = false;
+					}
+
+					irq_enable(DT_USART_1_IRQ);
+					k_sleep(100);
+				} while (retry);
+
+				/* Enable RX line and disable TX */
+				gpio_pin_write(gpioa, 5, 1);
+
+				/* Rest of processing will occur in ISR routine */
+				uart_irq_tx_enable(rs485_dev);
+
+				retry = true;
+				do {
+					irq_disable(DT_USART_1_IRQ);
+					retry = (modbus_ctx.tx_buf.sz != 0);
+					irq_enable(DT_USART_1_IRQ);
+					k_sleep(100);
+				} while (retry);
+
+				printf("response sent\n");
 			}
 
 			modbus_safe_data.cnt -= read;
