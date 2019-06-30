@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP STM32_BluePill
+D STM32F103 board
+K STM32F103,BluePill
+F https://wiki.stm32duino.com/index.php?title=Blue_Pill
+$ENDCMP
+#
+$CMP TPS54331
+D 3-A, 28-V Input, Step Down DC-DC Converter
+K swithing,power,supply,buck
+F http://www.ti.com/lit/ds/symlink/tps54331.pdf
+$ENDCMP
+#
+#End Doc Library
