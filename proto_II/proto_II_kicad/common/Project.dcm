@@ -1,5 +1,17 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ADUM5241
+D Dual-Channel Isolators with isoPower, Integrated DC-to-DC Converter, 50 mW
+K ADUM5241 isolator dc/dc
+F https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf
+$ENDCMP
+#
+$CMP EL357N-G
+D 4 PIN SOP PHOTOTRANSISTOR PHOTOCOUPLER, EL357N-G Series
+K optoisolator EL357N isolator optocoupler
+F http://www.everlight.com/file/ProductFile/EL357N-G.pdf
+$ENDCMP
+#
 $CMP STM32_BluePill
 D STM32F103 board
 K STM32F103,BluePill
