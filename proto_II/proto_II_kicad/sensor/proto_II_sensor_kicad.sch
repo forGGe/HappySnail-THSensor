@@ -112,6 +112,7 @@ F 0 "C3" H 4592 2996 50  0000 L CNN
 F 1 "10n" H 4592 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4500 2950 50  0001 C CNN
 F 3 "~" H 4500 2950 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 10nF" H 4500 2950 50  0001 C CNN "Component"
 	1    4500 2950
 	1    0    0    -1  
 $EndComp
@@ -123,6 +124,7 @@ F 0 "C2" H 4242 2996 50  0000 L CNN
 F 1 "100n" H 4242 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4150 2950 50  0001 C CNN
 F 3 "~" H 4150 2950 50  0001 C CNN
+F 4 "0603B104K500NT" H 4150 2950 50  0001 C CNN "Component"
 	1    4150 2950
 	1    0    0    -1  
 $EndComp
@@ -134,6 +136,7 @@ F 0 "C1" H 3892 2996 50  0000 L CNN
 F 1 "1u" H 3892 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3800 2950 50  0001 C CNN
 F 3 "~" H 3800 2950 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 1uF" H 3800 2950 50  0001 C CNN "Component"
 	1    3800 2950
 	1    0    0    -1  
 $EndComp
@@ -185,6 +188,7 @@ F 0 "C6" H 6142 2996 50  0000 L CNN
 F 1 "1u" H 6142 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6050 2950 50  0001 C CNN
 F 3 "~" H 6050 2950 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 1uF" H 6050 2950 50  0001 C CNN "Component"
 	1    6050 2950
 	1    0    0    -1  
 $EndComp
@@ -196,6 +200,7 @@ F 0 "C5" H 5792 2996 50  0000 L CNN
 F 1 "100n" H 5792 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5700 2950 50  0001 C CNN
 F 3 "~" H 5700 2950 50  0001 C CNN
+F 4 "0603B104K500NT" H 5700 2950 50  0001 C CNN "Component"
 	1    5700 2950
 	1    0    0    -1  
 $EndComp
@@ -207,6 +212,7 @@ F 0 "C4" H 5442 2996 50  0000 L CNN
 F 1 "10n" H 5442 2905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5350 2950 50  0001 C CNN
 F 3 "~" H 5350 2950 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 10nF" H 5350 2950 50  0001 C CNN "Component"
 	1    5350 2950
 	1    0    0    -1  
 $EndComp
@@ -262,6 +268,7 @@ F 0 "R1" H 6618 3396 50  0000 L CNN
 F 1 "4K7" H 6618 3305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6550 3350 50  0001 C CNN
 F 3 "~" H 6550 3350 50  0001 C CNN
+F 4 "Noname 0603 Resistor 4.7K	" H 6550 3350 50  0001 C CNN "Component"
 	1    6550 3350
 	1    0    0    -1  
 $EndComp
@@ -273,6 +280,7 @@ F 0 "R2" H 6918 3396 50  0000 L CNN
 F 1 "4K7" H 6918 3305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6850 3350 50  0001 C CNN
 F 3 "~" H 6850 3350 50  0001 C CNN
+F 4 "Noname 0603 Resistor 4.7K	" H 6850 3350 50  0001 C CNN "Component"
 	1    6850 3350
 	1    0    0    -1  
 $EndComp
@@ -314,6 +322,7 @@ F 0 "U1" H 2950 3915 50  0000 C CNN
 F 1 "XC6206P332MR" H 2950 3824 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 3000 4050 50  0001 C CNN
 F 3 "" H 2950 3850 50  0001 C CNN
+F 4 "XC6206P332MR" H 2950 3600 50  0001 C CNN "Component"
 	1    2950 3600
 	1    0    0    -1  
 $EndComp
@@ -338,6 +347,7 @@ F 0 "C7" H 2142 3796 50  0000 L CNN
 F 1 "10u" H 2142 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2050 3750 50  0001 C CNN
 F 3 "~" H 2050 3750 50  0001 C CNN
+F 4 "CL31A106KAHNNNE" H 2050 3750 50  0001 C CNN "Component"
 	1    2050 3750
 	1    0    0    -1  
 $EndComp
@@ -349,6 +359,7 @@ F 0 "C9" H 3592 3796 50  0000 L CNN
 F 1 "1u" H 3592 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 3500 3750 50  0001 C CNN
 F 3 "~" H 3500 3750 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 1uF	" H 3500 3750 50  0001 C CNN "Component"
 	1    3500 3750
 	1    0    0    -1  
 $EndComp
@@ -437,6 +448,7 @@ F 0 "U2" H 4621 3696 50  0000 R CNN
 F 1 "BME280" H 4621 3605 50  0000 R CNN
 F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 5050 3450 50  0001 C CNN
 F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-11.pdf" H 5050 3450 50  0001 C CNN
+F 4 "BME280" H 5050 3650 50  0001 C CNN "Component"
 	1    5050 3650
 	1    0    0    -1  
 $EndComp
@@ -450,6 +462,7 @@ F 0 "C8" H 2492 3796 50  0000 L CNN
 F 1 "1u" H 2492 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric" H 2400 3750 50  0001 C CNN
 F 3 "~" H 2400 3750 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 1uF	" H 2400 3750 50  0001 C CNN "Component"
 	1    2400 3750
 	1    0    0    -1  
 $EndComp
@@ -489,6 +502,7 @@ F 0 "R3" V 7100 3600 50  0000 C CNN
 F 1 "TERM" V 7200 3600 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7300 3600 50  0001 C CNN
 F 3 "~" H 7300 3600 50  0001 C CNN
+F 4 "Noname 0603 Resistor 0R" H 7300 3600 50  0001 C CNN "Component"
 	1    7300 3600
 	0    1    1    0   
 $EndComp
@@ -502,6 +516,7 @@ F 0 "R4" V 7400 3700 50  0000 C CNN
 F 1 "TERM" V 7500 3700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7300 3700 50  0001 C CNN
 F 3 "~" H 7300 3700 50  0001 C CNN
+F 4 "Noname 0603 Resistor 0R" H 7300 3700 50  0001 C CNN "Component"
 	1    7300 3700
 	0    1    1    0   
 $EndComp

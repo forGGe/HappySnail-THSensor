@@ -1,4 +1,5 @@
 EESchema Schematic File Version 5
+LIBS:proto_II_rs485-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268

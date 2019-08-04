@@ -35,11 +35,12 @@ F 0 "C2" H 8392 2796 50  0000 L CNN
 F 1 "47u" H 8392 2705 50  0000 L CNN
 F 2 "Capacitor_THT:C_Radial_D5.0mm_H11.0mm_P2.00mm" H 8300 2750 50  0001 C CNN
 F 3 "~" H 8300 2750 50  0001 C CNN
+F 4 "WL1E476M05011BB" H 8300 2750 50  0001 C CNN "Component"
 	1    8300 2750
 	1    0    0    -1  
 $EndComp
-Text Notes 2700 4150 0    50   ~ 0
-- SS capacitor picked to have common value, which results in 4 ms slow start.\n- Divider for EN pin picked to match common\nresistor values. It results in Vstart ~~ 7V, Vend ~~ 7.65\n- Vsense with given resistor divider will result in Vou ~~ 4.43V\n- Inductor ~~22uH (higher is better for ripple, smaller - for AC current), I peak ~~ 1.2A\n- Compensation network values chosen based on TI's DC-DC design tool. TODO: re-validate freq. compensation
+Text Notes 2700 4375 0    50   ~ 0
+- SS capacitor picked to have common value, which results in 4 ms slow start.\n- Divider for EN pin picked to match common\nresistor values. It results in Vstart ~~ 7V, Vend ~~ 7.65\n- Vsense with given resistor divider will result in Vou ~~ 4.43V\n   TODO: pick values for 5V\n- Inductor ~~22uH (higher is better for ripple, smaller - for AC current), I peak ~~ 1.2A\n- Compensation network values chosen based on TI's DC-DC design tool. TODO: re-validate freq. compensation
 $Bitmap
 Pos 4350 6400
 Scale 1.000000
@@ -1495,6 +1496,7 @@ F 0 "L1" V 7855 2300 50  0000 C CNN
 F 1 "22u" V 7764 2300 50  0000 C CNN
 F 2 "Project:CDRH74" H 7650 2300 50  0001 C CNN
 F 3 "~" H 7650 2300 50  0001 C CNN
+F 4 "CDRH74NP-220MC-B" H 7650 2300 50  0001 C CNN "Component"
 	1    7650 2300
 	0    -1   -1   0   
 $EndComp
@@ -1502,11 +1504,12 @@ $Comp
 L Device:D_Schottky_Small D1
 U 1 1 5D23AADA
 P 7350 2550
-F 0 "D1" V 7350 2350 50  0000 L CNN
+F 0 "D1" V 7300 2350 50  0000 L CNN
 F 1 "700mV " V 7300 2600 50  0000 L CNN
 F 2 "Diode_SMD:D_SMA-SMB_Universal_Handsoldering" V 7350 2550 50  0001 C CNN
 F 3 "~" V 7350 2550 50  0001 C CNN
 F 4 "3A" V 7400 2650 50  0000 C CNN "Current rating"
+F 5 "SS26-E3/52T" V 7400 2225 50  0001 C CNN "Component"
 	1    7350 2550
 	0    1    1    0   
 $EndComp
@@ -1518,6 +1521,7 @@ F 0 "C7" H 6792 3196 50  0000 L CNN
 F 1 "2n2" H 6792 3105 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6700 3150 50  0001 C CNN
 F 3 "~" H 6700 3150 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 2.2nF" H 6700 3150 50  0001 C CNN "Component"
 	1    6700 3150
 	1    0    0    -1  
 $EndComp
@@ -1529,6 +1533,7 @@ F 0 "C9" H 7192 3346 50  0000 L CNN
 F 1 "10p" H 7192 3255 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7100 3300 50  0001 C CNN
 F 3 "~" H 7100 3300 50  0001 C CNN
+F 4 "Noname 0603 Capacitor 10pF" H 7100 3300 50  0001 C CNN "Component"
 	1    7100 3300
 	1    0    0    -1  
 $EndComp
@@ -1540,6 +1545,7 @@ F 0 "R5" H 6768 3496 50  0000 L CNN
 F 1 "13K3" H 6768 3405 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6700 3450 50  0001 C CNN
 F 3 "~" H 6700 3450 50  0001 C CNN
+F 4 "Noname 0603 Resistor 12K" H 6700 3450 50  0001 C CNN "Component"
 	1    6700 3450
 	1    0    0    -1  
 $EndComp
@@ -1551,6 +1557,7 @@ F 0 "C1" H 4942 2496 50  0000 L CNN
 F 1 "100n" H 4942 2405 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4850 2450 50  0001 C CNN
 F 3 "~" H 4850 2450 50  0001 C CNN
+F 4 "0603B104K500NT" H 4850 2450 50  0001 C CNN "Component"
 	1    4850 2450
 	1    0    0    -1  
 $EndComp
@@ -1562,6 +1569,7 @@ F 0 "R1" H 8068 2596 50  0000 L CNN
 F 1 "10K" H 8068 2505 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8000 2550 50  0001 C CNN
 F 3 "~" H 8000 2550 50  0001 C CNN
+F 4 "Noname 0603 Resistor 10K	" H 8000 2550 50  0001 C CNN "Component"
 	1    8000 2550
 	1    0    0    -1  
 $EndComp
@@ -1573,6 +1581,7 @@ F 0 "R3" H 8068 2996 50  0000 L CNN
 F 1 "2K2" H 8068 2905 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 8000 2950 50  0001 C CNN
 F 3 "~" H 8000 2950 50  0001 C CNN
+F 4 "RS-03K2201FT " H 8000 2950 50  0001 C CNN "Component"
 	1    8000 2950
 	1    0    0    -1  
 $EndComp
@@ -1686,6 +1695,7 @@ F 0 "C3" H 8692 2796 50  0000 L CNN
 F 1 "47u" H 8692 2705 50  0000 L CNN
 F 2 "Capacitor_THT:C_Radial_D5.0mm_H11.0mm_P2.00mm" H 8600 2750 50  0001 C CNN
 F 3 "~" H 8600 2750 50  0001 C CNN
+F 4 "WL1E476M05011BB" H 8600 2750 50  0001 C CNN "Component"
 	1    8600 2750
 	1    0    0    -1  
 $EndComp
@@ -1717,6 +1727,7 @@ F 0 "U1" H 5700 3215 50  0000 C CNN
 F 1 "TPS54331" H 5700 3124 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5700 2450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tps54331.pdf" H 5800 2950 50  0001 C CNN
+F 4 "TPS54331" H 5700 2800 50  0001 C CNN "Component"
 	1    5700 2800
 	1    0    0    -1  
 $EndComp
@@ -1728,6 +1739,7 @@ F 0 "C8" H 4792 3246 50  0000 L CNN
 F 1 "10n" H 4792 3155 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4700 3200 50  0001 C CNN
 F 3 "~" H 4700 3200 50  0001 C CNN
+F 4 "CL31B103KBCNNNC" H 4700 3200 50  0001 C CNN "Component"
 	1    4700 3200
 	1    0    0    -1  
 $EndComp
@@ -1739,6 +1751,7 @@ F 0 "J1" H 9250 2900 50  0000 C CNN
 F 1 "VDC_OUT" H 9250 2800 50  0000 C CNN
 F 2 "Project:DG300-5.0-02P-12" H 9250 2650 50  0001 C CNN
 F 3 "~" H 9250 2650 50  0001 C CNN
+F 4 "DG300-5.0-02P-12-00A(H)	" H 9250 2650 50  0001 C CNN "Component"
 	1    9250 2650
 	1    0    0    -1  
 $EndComp
@@ -1779,6 +1792,7 @@ F 0 "R2" H 4268 2946 50  0000 L CNN
 F 1 "220K" H 4268 2855 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4200 2900 50  0001 C CNN
 F 3 "~" H 4200 2900 50  0001 C CNN
+F 4 "Noname 1206 Resistor 220K	" H 4200 2900 50  0001 C CNN "Component"
 	1    4200 2900
 	1    0    0    -1  
 $EndComp
@@ -1790,6 +1804,7 @@ F 0 "R4" H 4268 3246 50  0000 L CNN
 F 1 "47K" H 4268 3155 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4200 3200 50  0001 C CNN
 F 3 "~" H 4200 3200 50  0001 C CNN
+F 4 "Noname 1206 Resistor 47K" H 4200 3200 50  0001 C CNN "Component"
 	1    4200 3200
 	1    0    0    -1  
 $EndComp
@@ -1835,17 +1850,6 @@ F 3 "" H 3550 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C4
-U 1 1 5D23AAD8
-P 3250 2900
-F 0 "C4" H 3342 2946 50  0000 L CNN
-F 1 "10u" H 3342 2855 50  0000 L CNN
-F 2 "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm" H 3250 2900 50  0001 C CNN
-F 3 "~" H 3250 2900 50  0001 C CNN
-	1    3250 2900
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:C_Small C5
 U 1 1 5D23AAEC
 P 3550 2900
@@ -1853,6 +1857,7 @@ F 0 "C5" H 3642 2946 50  0000 L CNN
 F 1 "10u" H 3642 2855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm" H 3550 2900 50  0001 C CNN
 F 3 "~" H 3550 2900 50  0001 C CNN
+F 4 "WL2A106M6L011BB180" H 3550 2900 50  0001 C CNN "Component"
 	1    3550 2900
 	1    0    0    -1  
 $EndComp
@@ -1871,6 +1876,7 @@ F 0 "J2" H 2518 2625 50  0000 C CNN
 F 1 "VDC_IN" H 2518 2716 50  0000 C CNN
 F 2 "Project:DG300-5.0-02P-12" H 2600 2950 50  0001 C CNN
 F 3 "~" H 2600 2950 50  0001 C CNN
+F 4 "DG300-5.0-02P-12-00A(H)	" H 2600 2950 50  0001 C CNN "Component"
 	1    2600 2950
 	-1   0    0    1   
 $EndComp
@@ -1914,4 +1920,16 @@ Text Label 8700 2300 0    50   ~ 0
 VOUT
 Text Label 6800 2300 0    50   ~ 0
 PH
+$Comp
+L Device:C_Small C4
+U 1 1 5D23AAD8
+P 3250 2900
+F 0 "C4" H 3342 2946 50  0000 L CNN
+F 1 "10u" H 3342 2855 50  0000 L CNN
+F 2 "Capacitor_THT:C_Radial_D6.3mm_H11.0mm_P2.50mm" H 3250 2900 50  0001 C CNN
+F 3 "~" H 3250 2900 50  0001 C CNN
+F 4 "WL2A106M6L011BB180" V 3150 2900 50  0001 C CNN "Component"
+	1    3250 2900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
