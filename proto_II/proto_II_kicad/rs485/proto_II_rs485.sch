@@ -44,6 +44,7 @@ F 0 "C2" H 5592 3796 50  0000 L CNN
 F 1 "100n" H 5592 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5500 3750 50  0001 C CNN
 F 3 "~" H 5500 3750 50  0001 C CNN
+F 4 "Noname 1206 Capacitor 100nF	" H 5500 3750 50  0001 C CNN "Component"
 	1    5500 3750
 	1    0    0    -1  
 $EndComp
@@ -55,6 +56,7 @@ F 0 "C3" H 5942 3796 50  0000 L CNN
 F 1 "1u" H 5942 3705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5850 3750 50  0001 C CNN
 F 3 "~" H 5850 3750 50  0001 C CNN
+F 4 "Noname 1206 Capacitor 1uF" H 5850 3750 50  0001 C CNN "Component"
 	1    5850 3750
 	1    0    0    -1  
 $EndComp
@@ -112,6 +114,7 @@ F 0 "C4" H 5592 4696 50  0000 L CNN
 F 1 "100n" H 5592 4605 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5500 4650 50  0001 C CNN
 F 3 "~" H 5500 4650 50  0001 C CNN
+F 4 "Noname 1206 Capacitor 100nF	" H 5500 4650 50  0001 C CNN "Component"
 	1    5500 4650
 	1    0    0    -1  
 $EndComp
@@ -123,6 +126,7 @@ F 0 "C5" H 5942 4696 50  0000 L CNN
 F 1 "1u" H 5942 4605 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5850 4650 50  0001 C CNN
 F 3 "~" H 5850 4650 50  0001 C CNN
+F 4 "Noname 1206 Capacitor 1uF" H 5850 4650 50  0001 C CNN "Component"
 	1    5850 4650
 	1    0    0    -1  
 $EndComp
@@ -169,6 +173,7 @@ F 0 "D1" H 6425 1650 50  0000 L CNN
 F 1 "SM712" H 6300 1850 50  0000 L CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 6250 1750 50  0001 C CNN
 F 3 "~" H 6250 1750 50  0001 C CNN
+F 4 "SM712" H 6400 1750 50  0001 C CNN "Component"
 	1    6400 1750
 	0    -1   1    0   
 $EndComp
@@ -191,6 +196,7 @@ F 0 "R1" H 5400 1300 50  0000 C CNN
 F 1 "2K2" H 5400 1400 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5500 1350 50  0001 C CNN
 F 3 "~" H 5500 1350 50  0001 C CNN
+F 4 "RS-03K2201FT" H 5500 1350 50  0001 C CNN "Component"
 	1    5500 1350
 	-1   0    0    1   
 $EndComp
@@ -212,6 +218,7 @@ F 0 "U2" H 5200 2200 50  0000 C CNN
 F 1 "ST485EBDR" H 5200 2100 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 4950 800 50  0001 C CNN
 F 3 "http://www.st.com/resource/en/datasheet/st485eb.pdf" H 4950 1750 50  0001 C CNN
+F 4 "ST485BDR" H 4950 1700 50  0001 C CNN "Component"
 	1    4950 1700
 	1    0    0    -1  
 $EndComp
@@ -223,6 +230,7 @@ F 0 "R3" H 5300 2050 50  0000 C CNN
 F 1 "2K2" H 5300 2150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5400 2100 50  0001 C CNN
 F 3 "~" H 5400 2100 50  0001 C CNN
+F 4 "RS-03K2201FT" H 5400 2100 50  0001 C CNN "Component"
 	1    5400 2100
 	-1   0    0    1   
 $EndComp
@@ -272,6 +280,7 @@ F 0 "C1" H 6067 1796 50  0000 L CNN
 F 1 "10n" H 6067 1705 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5975 1750 50  0001 C CNN
 F 3 "~" H 5975 1750 50  0001 C CNN
+F 4 "CL31B103KBCNNNC" H 5975 1750 50  0001 C CNN "Component"
 	1    5975 1750
 	1    0    0    -1  
 $EndComp
@@ -316,6 +325,7 @@ F 0 "R4" V 2395 2750 50  0000 C CNN
 F 1 "2K2" V 2486 2750 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2600 2750 50  0001 C CNN
 F 3 "~" H 2600 2750 50  0001 C CNN
+F 4 "RS-03K2201FT" H 2600 2750 50  0001 C CNN "Component"
 	1    2600 2750
 	0    1    1    0   
 $EndComp
@@ -338,6 +348,7 @@ F 0 "R6" V 2395 3950 50  0000 C CNN
 F 1 "2K2" V 2486 3950 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2600 3950 50  0001 C CNN
 F 3 "~" H 2600 3950 50  0001 C CNN
+F 4 "RS-03K2201FT" H 2600 3950 50  0001 C CNN "Component"
 	1    2600 3950
 	0    1    1    0   
 $EndComp
@@ -368,6 +379,7 @@ F 0 "R5" H 3450 3050 50  0000 C CNN
 F 1 "10K" H 3450 3150 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3550 3100 50  0001 C CNN
 F 3 "~" H 3550 3100 50  0001 C CNN
+F 4 "RC0603JR-1010KL" H 3550 3100 50  0001 C CNN "Component"
 	1    3550 3100
 	-1   0    0    1   
 $EndComp
@@ -396,6 +408,7 @@ F 0 "R7" H 3450 4250 50  0000 C CNN
 F 1 "10K" H 3450 4350 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3550 4300 50  0001 C CNN
 F 3 "~" H 3550 4300 50  0001 C CNN
+F 4 "RC0603JR-1010KL" H 3550 4300 50  0001 C CNN "Component"
 	1    3550 4300
 	-1   0    0    1   
 $EndComp
@@ -486,6 +499,7 @@ F 0 "J2" H 1400 2125 50  0000 C CNN
 F 1 "INPUT" V 1525 1750 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 1400 1800 50  0001 C CNN
 F 3 "~" H 1400 1800 50  0001 C CNN
+F 4 "1x06 Pin Header" H 1400 1800 50  0001 C CNN "Component"
 	1    1400 1800
 	-1   0    0    -1  
 $EndComp
@@ -497,6 +511,7 @@ F 0 "U1" H 3200 2065 50  0000 C CNN
 F 1 "ADUM5241" H 3200 1974 50  0000 C CNN
 F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 3250 1300 50  0001 C CNN
 F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf" H 3200 1700 50  0001 C CNN
+F 4 "ADUM5241ARZ" H 3200 1700 50  0001 C CNN "Component"
 	1    3200 1700
 	1    0    0    -1  
 $EndComp
@@ -508,6 +523,7 @@ F 0 "U3" H 3200 3175 50  0000 C CNN
 F 1 "EL357N-G" H 3200 3084 50  0000 C CNN
 F 2 "Package_SO:SOP-4_3.8x4.1mm_P2.54mm" H 3275 2650 50  0001 C CNN
 F 3 "http://www.everlight.com/file/ProductFile/EL357N-G.pdf" H 3200 3050 50  0001 C CNN
+F 4 "EL357N-G" H 3200 2850 50  0001 C CNN "Component"
 	1    3200 2850
 	1    0    0    -1  
 $EndComp
@@ -519,6 +535,7 @@ F 0 "U4" H 3200 4375 50  0000 C CNN
 F 1 "EL357N-G" H 3200 4284 50  0000 C CNN
 F 2 "Package_SO:SOP-4_3.8x4.1mm_P2.54mm" H 3275 3850 50  0001 C CNN
 F 3 "http://www.everlight.com/file/ProductFile/EL357N-G.pdf" H 3200 4250 50  0001 C CNN
+F 4 "EL357N-G" H 3200 4050 50  0001 C CNN "Component"
 	1    3200 4050
 	1    0    0    -1  
 $EndComp
@@ -623,6 +640,7 @@ F 0 "R2" H 5875 1450 50  0000 C CNN
 F 1 "120" H 5850 1525 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5975 1500 50  0001 C CNN
 F 3 "~" H 5975 1500 50  0001 C CNN
+F 4 "Noname 0603 Resistor 120R" H 5975 1500 50  0001 C CNN "Component"
 	1    5975 1500
 	-1   0    0    1   
 $EndComp
@@ -636,6 +654,7 @@ F 0 "JP1" V 6021 1952 50  0000 R CNN
 F 1 "JP" V 5930 1952 50  0000 R CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5975 2000 50  0001 C CNN
 F 3 "~" H 5975 2000 50  0001 C CNN
+F 4 "1x02 Pin Header" H 5975 2000 50  0001 C CNN "Component"
 	1    5975 2000
 	0    -1   -1   0   
 $EndComp
@@ -659,6 +678,7 @@ F 0 "J3" H 7180 1842 50  0000 L CNN
 F 1 "B_CONN" H 7180 1751 50  0000 L CNN
 F 2 "Project:DG300-5.0-02P-12" H 7100 1850 50  0001 C CNN
 F 3 "~" H 7100 1850 50  0001 C CNN
+F 4 "DG300-5.0-02P-12-00A(H)" H 7100 1850 50  0001 C CNN "Component"
 	1    7100 1850
 	1    0    0    -1  
 $EndComp
@@ -670,6 +690,7 @@ F 0 "J1" H 7180 1542 50  0000 L CNN
 F 1 "A_CONN" H 7180 1451 50  0000 L CNN
 F 2 "Project:DG300-5.0-02P-12" H 7100 1550 50  0001 C CNN
 F 3 "~" H 7100 1550 50  0001 C CNN
+F 4 "DG300-5.0-02P-12-00A(H)" H 7100 1550 50  0001 C CNN "Component"
 	1    7100 1550
 	1    0    0    -1  
 $EndComp
