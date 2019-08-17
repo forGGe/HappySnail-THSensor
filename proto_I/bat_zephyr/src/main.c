@@ -288,6 +288,7 @@ void main(void)
 	int rc;
 
 	printk("Hello World! %s\n", CONFIG_BOARD);
+	printk("Starting BAT test for Happy Snail RH/T subproject\n");
 
 	if (bme280_dev == NULL) {
 		printf("could not get BME280 device\n");
@@ -402,6 +403,8 @@ void main(void)
 				} while (retry);
 
 				printf("response sent\n");
+				/* Done with sending this response, try next one */
+				modbus_parsed.complete = false;
 			}
 
 			modbus_safe_data.cnt -= read;

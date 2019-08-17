@@ -2,27 +2,57 @@
 Happy Snail TH-Sensor: Prototype I
 ##################################
 
+****************************
+Basic Acceptance Test Pinmux
+****************************
+
++----------+-------------------+-------------------+---------------------+
+| MCU Pin  | Purpose           | External Device   | External Device Pin |
++==========+===================+===================+=====================+
+| Debug UART: 9600 baud                                                |
++----------+-------------------+-------------------+---------------------+
+| PA2      | UART2 TX          | USB/UART module   | RX                  |
++----------+-------------------+-------------------+---------------------+
+| PA3      | UART2 RX          | USB/UART module   | TX                  |
++----------+-------------------+-------------------+---------------------+
+| RS485/ModBus: 9600 baud                                                |
++----------+-------------------+-------------------+---------------------+
+|          |                   |                   | DE                  |
+| PA5      | RS485: DE/~RE pin | TTL/RS485 module  +---------------------+
+|          |                   |                   | ~RE                 |
++----------+-------------------+-------------------+---------------------+
+| PA9      | UART1 TX          | TTL/RS485 module  | DI                  |
++----------+-------------------+-------------------+---------------------+
+| PA10     | UART1 RX          | TTL/RS485 module  | RO                  |
++----------+-------------------+-------------------+---------------------+
+| I2C for RH/T sensor                                                    |
++----------+-------------------+-------------------+---------------------+
+| PB6      | I2C1 SCL          | Sensor module     | SCL                 |
++----------+-------------------+-------------------+---------------------+
+| PB7      | I2C1 SDA          | Sensor module     | SDA                 |
++----------+-------------------+-------------------+---------------------+
+
 *******************************
 Basic Acceptance Test Procedure
 *******************************
 
-1. Install ``west`` and `Zephyr v1.14.0`_
+#. Install ``west`` and `Zephyr v1.14.0`_
 
-1. Build an image::
+#. Build an image::
 
      export ZEPHYR_BASE=/path/to/zephyr/repo
      export GNUARMEMB_TOOLCHAIN_PATH=/path/to/arm-none-eabi/toolchain
      export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
      make bat
 
-1. Connect to the board::
+#. Connect to the board::
 
       openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg
 
    Do not forget to hold RESET button, otherwise board will remain in sleep mode and not respond
    to debug requests
 
-1. Run GDB and flash the BAT image::
+#. Run GDB and flash the BAT image::
 
       arm-none-eabi-gdb -ex "target extended-remote :3333" ./bat_zephyr/build/zephyr/zephyr.elf
       ...
@@ -32,15 +62,15 @@ Basic Acceptance Test Procedure
       ....
       (gdb) c
 
-1. Connect to RS485 port with ``pymodbus.console``::
+#. Connect to RS485 port with ``pymodbus.console``::
 
       ~/.local/bin/pymodbus.console serial --method ascii --baudrate 9600 --stopbits 1 --parity N --port /dev/ttyUSB0 --timeout 100.0
 
-1. Read test registers::
+#. Read test registers::
 
       > client.read_holding_registers unit=42 address=1000 count=6
 
-1. Observe logs
+#. Observe logs
 
    In ``pymodbus.console``::
 
