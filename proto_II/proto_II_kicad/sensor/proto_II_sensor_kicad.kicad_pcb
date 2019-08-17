@@ -67,9 +67,9 @@
     (grid_origin 34 28.25)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x010fc_ffffffff)
+      (layerselection 0x010f0_ffffffff)
       (usegerberextensions true)
-      (usegerberattributes true)
+      (usegerberattributes false)
       (usegerberadvancedattributes false)
       (creategerberjobfile false)
       (excludeedgelayer true)
@@ -92,7 +92,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "gerber/sensor_board/"))
+      (outputdirectory "../common/gerber/sensor_board/"))
   )
 
   (net 0 "")
