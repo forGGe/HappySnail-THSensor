@@ -47,11 +47,10 @@
 /* SDA PB7, SCL PB6 */
 &i2c1 {
 	status = "ok";
-	bme280: bme280@76 {
-		compatible = "bosch,bme280";
-		reg = <0x76>;
+	si7006: si7006@40 {
+		reg = <0x40>;
 		status = "ok";
-		label = "BME280";
+		label = "si7006";
 	};
 };
 

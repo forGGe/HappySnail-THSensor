@@ -15,6 +15,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <i2c.h>
 
 #define MODBUS_BAT_SLAVE_ADDRESS 		42
 
@@ -276,9 +277,77 @@ static void uart1_irq_cb(void *user_data)
 static struct drv_ctx modbus_ctx;
 static struct drv_buf modbus_safe_data;
 
+#define TTSi7006_I2C_ADDRESS              0x40
+#define TTSi7006_ID                       0x186
+
+#define TTSi7006_REG_REL_HUM              0xE5
+#define TTSi7006_REG_TEMP                 0xE3
+#define TTSi7006_REG_TEMP_DUP             0xE0
+
+static int si7006_reg_read(struct device *i2c_master,
+			  u8_t start, u8_t *buf, int size)
+{
+	return i2c_burst_read(i2c_master, TTSi7006_I2C_ADDRESS,
+			      start, buf, size);
+}
+
+static int si7006_reg_write(struct device *i2c_master, u8_t reg, u8_t val)
+{
+	return i2c_reg_write_byte(i2c_master, TTSi7006_I2C_ADDRESS,
+				  reg, val);
+}
+
+static int si7006_reg_read16(struct device *i2c_master,
+						u16_t start,
+						u8_t *buf,
+						u32_t size)
+{
+	u8_t addr_buffer[2];
+
+	addr_buffer[1] = start & 0xFF;
+	addr_buffer[0] = start >> 8;
+
+	struct i2c_msg msg[2];
+
+	msg[0].buf = (u8_t *)addr_buffer;
+	msg[0].len = sizeof(addr_buffer);
+	msg[0].flags = I2C_MSG_WRITE;
+
+	msg[1].buf = (u8_t *)buf;
+	msg[1].len = size;
+	msg[1].flags = I2C_MSG_RESTART | I2C_MSG_READ | I2C_MSG_STOP;
+
+	return i2c_transfer(i2c_master, msg, 2, TTSi7006_I2C_ADDRESS);
+}
+
+
+static void si7006_print_sn(struct device *i2c_master)
+{
+	int rc;
+	u8_t buf[8];
+
+	rc = si7006_reg_read16(i2c_master, 0xfa0f, buf, sizeof(buf));
+	printf("rc: %d\n", rc);
+	if (rc < 0)
+		return;
+
+	printf("1 -> %x-%x-%x-%x-%x-%x-%x-%x\n",
+		buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
+
+	rc = si7006_reg_read16(i2c_master, 0xfcc9, buf, 6);
+	printf("rc: %d\n", rc);
+	if (rc < 0)
+		return;
+
+	printf("2 -> %x-%x-%x-%x-%x-%x\n",
+		buf[0], buf[1], buf[2], buf[3], buf[4], buf[5]);
+
+}
+
 void main(void)
 {
-	struct device *bme280_dev = device_get_binding("BME280");
+	// struct device *sensor_dev = device_get_binding("BME280");
+	struct device *i2c_dev = device_get_binding("I2C_1");
 	struct device *rs485_dev = device_get_binding("UART_1");
 	struct device *gpioa = device_get_binding("GPIOA");
 
@@ -290,8 +359,13 @@ void main(void)
 	printk("Hello World! %s\n", CONFIG_BOARD);
 	printk("Starting BAT test for Happy Snail RH/T subproject\n");
 
-	if (bme280_dev == NULL) {
-		printf("could not get BME280 device\n");
+	// if (sensor_dev == NULL) {
+	// 	printf("could not get BME280 device\n");
+	// 	return;
+	// }
+
+	if (i2c_dev == NULL) {
+		printf("could not get I2C device\n");
 		return;
 	}
 
@@ -310,7 +384,7 @@ void main(void)
 		printf("failed to configure GPIO pin\n");
 	}
 
-	printf("bme280_dev %p name %s\n", bme280_dev, bme280_dev->config->name);
+	// printf("sensor_dev %p name %s\n", sensor_dev, sensor_dev->config->name);
 
 	struct uart_config uart1_cfg = {
 		.baudrate	= 9600,
@@ -336,6 +410,8 @@ void main(void)
 	/* Enable RS485 RX line and disable TX */
 	gpio_pin_write(gpioa, 5, 0);
 
+	si7006_print_sn(i2c_dev);
+
 	while (1) {
 		k_cpu_idle();
 
@@ -349,12 +425,31 @@ void main(void)
 			size_t read = modbus_process_raw_data(&frame, &modbus_parsed, modbus_safe_data.data, modbus_safe_data.cnt);
 			printf("> modbus processed: %d\n", read);
 			if (modbus_parsed.complete) {
-				struct sensor_value temp, press, humidity;
+				struct sensor_value temp = {0};
+				struct sensor_value humidity = {0};
+				struct sensor_value press = {0};
 
-				sensor_sample_fetch(bme280_dev);
-				sensor_channel_get(bme280_dev, SENSOR_CHAN_AMBIENT_TEMP, &temp);
-				sensor_channel_get(bme280_dev, SENSOR_CHAN_PRESS, &press);
-				sensor_channel_get(bme280_dev, SENSOR_CHAN_HUMIDITY, &humidity);
+				u8_t si_data[32];
+				u32_t sample;
+
+				rc = si7006_reg_read(i2c_dev, TTSi7006_REG_REL_HUM, si_data, 3);
+				sample = ((u32_t)si_data[0] << 8) | si_data[1];
+				printf("sample: %#x\n", sample);
+				sample = (u32_t)12500 * sample / 65536 - 600;
+				humidity.val1 = sample / 100;
+				humidity.val2 = sample % 100;
+
+				rc = si7006_reg_read(i2c_dev, TTSi7006_REG_TEMP_DUP, si_data, 3);
+				sample = ((u32_t)si_data[0] << 8) | si_data[1];
+				printf("sample: %#x\n", sample);
+				sample = (u32_t)17572 * sample / 65536 - 4685;
+				temp.val1 = sample / 100;
+				temp.val2 = sample % 100;
+
+				// sensor_sample_fetch(sensor_dev);
+				// sensor_channel_get(sensor_dev, SENSOR_CHAN_AMBIENT_TEMP, &temp);
+				// sensor_channel_get(sensor_dev, SENSOR_CHAN_PRESS, &press);
+				// sensor_channel_get(sensor_dev, SENSOR_CHAN_HUMIDITY, &humidity);
 
 				printf("temp: %d.%06d; press: %d.%06d; humidity: %d.%06d\n",
 					temp.val1, temp.val2, press.val1, press.val2,
