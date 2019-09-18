@@ -38,6 +38,10 @@ Basic Acceptance Test Procedure
 
 #. Install ``west`` and `Zephyr v1.14.0`_
 
+#. Install `pymodbus`,  a library for interfacing with ModBus::
+
+     pip3 install pymodbus --user
+
 #. Build an image::
 
      export ZEPHYR_BASE=/path/to/zephyr/repo
@@ -45,22 +49,44 @@ Basic Acceptance Test Procedure
      export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
      make bat
 
-#. Connect to the board::
+#. If that's a first time the board is used, flash must be unlocked. To do that, execute::
 
-      openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg
+     openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg -c "init; reset halt; stm32f1x unlock 0; stm32f1x mass_erase 0; reset halt; exit;"
 
-   Do not forget to hold RESET button, otherwise board will remain in sleep mode and not respond
-   to debug requests
+#. Flash a board:
 
-#. Run GDB and flash the BAT image::
+   #. Hold RESET button (otherwise board will remain in sleep mode and not respond to debug requests).
+   #. Execute::
 
-      arm-none-eabi-gdb -ex "target extended-remote :3333" ./bat_zephyr/build/zephyr/zephyr.elf
-      ...
-      (gdb) monitor reset halt
-      ...
-      (gdb) load
-      ....
-      (gdb) c
+         make bat_flash
+
+   #. Release RESET button when ``Now you may release RESET button`` message will appear.
+   #. Check logs for successful flashing::
+
+         st-info --probe
+         Found 1 stlink programmers
+          serial: 563f6c06507855505834013f
+         openocd: "\x56\x3f\x6c\x06\x50\x78\x55\x50\x58\x34\x01\x3f"
+           flash: 0 (pagesize: 1024)
+            sram: 20480
+          chipid: 0x0410
+           descr: F1 Medium-density device
+         echo "Now you may release RESET button"
+         Now you may release RESET button
+         sleep 1
+         st-flash write /home/user/projects/HappySnail/HappySnail-THSensor/proto_I//bat_zephyr/build/zephyr/zephyr.bin 0x8000000
+         st-flash 1.5.1
+         2019-09-19T00:07:42 INFO common.c: Loading device parameters....
+         2019-09-19T00:07:42 INFO common.c: Device connected is: F1 Medium-density device, id 0x20036410
+         2019-09-19T00:07:42 INFO common.c: SRAM size: 0x5000 bytes (20 KiB), Flash: 0x20000 bytes (128 KiB) in pages of 1024 bytes
+         2019-09-19T00:07:42 INFO common.c: Attempting to write 20000 (0x4e20) bytes to stm32 address: 134217728 (0x8000000)
+         Flash page at addr: 0x08004c00 erased
+         2019-09-19T00:07:43 INFO common.c: Finished erasing 20 pages of 1024 (0x400) bytes
+         2019-09-19T00:07:43 INFO common.c: Starting Flash write for VL/F0/F3/F1_XL core id
+         2019-09-19T00:07:43 INFO flash_loader.c: Successfully loaded flash loader in sram
+          20/20 pages written
+         2019-09-19T00:07:44 INFO common.c: Starting verification of write complete
+         2019-09-19T00:07:44 INFO common.c: Flash written and verified! jolly good!
 
 #. Connect to RS485 port with ``pymodbus.console``::
 
@@ -108,4 +134,23 @@ Basic Acceptance Test Procedure
 
       response sent
 
+***********************************************************
+Basic Acceptance Test Procedure: Upload Data to ThingsBoard
+***********************************************************
+
+In addition to previous procedure, data can be displayed using ThingsBoard platform.
+To do so, proceed with following:
+
+#. Create account on `ThingsBoard Demo Server`_
+
+#. Create a sample ThingsBoard device, obtain its access token.
+
+#. With hardware setup as in previous section, run the data upload script::
+
+     # From the root of this repository
+     python ./scripts/publish_bat_data.py /dev/$RS485_TTY_PORT $ACCESS_TOKEN
+
+#. Check ThingsBoard for data.
+
 .. _`Zephyr v1.14.0`: https://docs.zephyrproject.org/latest/getting_started/index.html
+.. _`ThingsBoard Demo Server`: http://demo.thingsboard.io/
