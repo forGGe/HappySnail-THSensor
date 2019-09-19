@@ -26,7 +26,7 @@ while True:
         mqtt.single(topic='v1/devices/me/telemetry',
                 payload=json.dumps(telemetry),
                 hostname='demo.thingsboard.io',
-                auth = {'username':'fHE2yMKUw9pQZmMyHSRX', 'password':''}
+                auth = {'username':sys.argv[2], 'password':''}
         )
 
-        time.sleep(10)
+        time.sleep(int(sys.argv[3]))
