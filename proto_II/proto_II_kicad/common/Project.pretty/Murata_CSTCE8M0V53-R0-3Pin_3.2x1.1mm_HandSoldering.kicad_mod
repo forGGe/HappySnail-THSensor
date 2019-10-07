@@ -1,4 +1,4 @@
-(module Murata_CSTCE8M0V53-R0-3Pin_3.2x1.1mm_HandSoldering (layer F.Cu) (tedit 5B48834F)
+(module Murata_CSTCE8M0V53-R0-3Pin_3.2x1.1mm_HandSoldering (layer F.Cu) (tedit 5D9B7FC9)
   (descr "SMD Resomator/Filter Murata CSTCE, https://www.murata.com/en-eu/products/productdata/8801162264606/SPEC-CSTNE16M0VH3C000R0.pdf")
   (tags "SMD SMT ceramic resonator filter")
   (attr smd)
@@ -35,9 +35,9 @@
   (pad 3 smd rect (at 1.2 0) (size 0.4 3.2) (layers F.Cu F.Paste F.Mask))
   (pad 2 smd rect (at 0 0) (size 0.4 3.2) (layers F.Cu F.Paste F.Mask))
   (pad 1 smd rect (at -1.2 0) (size 0.4 3.2) (layers F.Cu F.Paste F.Mask))
-  (model ${KIPRJMOD}/3d/FuguResonators/Murata_CSTCEXX_3.2mmx1.3mm.stp
+  (model ${KIPRJMOD}/../common/3d/Murata_CSTCEXX_3.2mmx1.3mm.stp
     (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
+    (scale (xyz 1.2 1 1))
     (rotate (xyz 0 0 0))
   )
 )
