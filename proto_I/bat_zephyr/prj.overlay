@@ -1,26 +1,9 @@
 #include <dt-bindings/pinctrl/stm32-pinctrlf1.h>
 
 / {
-	model = "STM32 Minimum Development Board";
-	compatible = "st,stm32_min_dev", "st,stm32f103c8";
-
 	chosen {
 		zephyr,console = &usart2;
 		zephyr,shell-uart = &usart2;
-		zephyr,sram = &sram0;
-		zephyr,flash = &flash0;
-	};
-
-	leds {
-		compatible = "gpio-leds";
-		led: led {
-			gpios = <&gpioc 13 GPIO_INT_ACTIVE_HIGH>;
-			label = "LD";
-		};
-	};
-
-	aliases {
-		led0 = &led;
 	};
 };
 
@@ -28,14 +11,14 @@
 	current-speed = <9600>;
 	pinctrl-0 = <&usart1_pins_a>;
 	pinctrl-names = "default";
-	status = "ok";
+	status = "okay";
 };
 
 &usart2 {
 	current-speed = <9600>;
 	pinctrl-0 = <&usart2_pins_a>;
 	pinctrl-names = "default";
-	status = "ok";
+	status = "okay";
 };
 
 &usart3 {
@@ -44,13 +27,25 @@
 	pinctrl-names = "default";
 };
 
+
 /* SDA PB7, SCL PB6 */
 &i2c1 {
-	status = "ok";
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
 	si7006: si7006@40 {
+		compatible = "silabs,si7006";
 		reg = <0x40>;
-		status = "ok";
-		label = "si7006";
+		status = "okay";
+		label = "SENSOR_CHIP";
 	};
 };
 
+//&i2c1 {
+//	status = "okay";
+//	bme280: bme280@76 {
+//		compatible = "bosch,bme280";
+//		reg = <0x76>;
+//		status = "okay";
+//		label = "bme280";
+//	};
+//};

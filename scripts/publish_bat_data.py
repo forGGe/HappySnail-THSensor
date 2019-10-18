@@ -3,11 +3,21 @@
 import sys
 import json
 import time
+import argparse
 
 import paho.mqtt.publish as mqtt
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 
-client = ModbusClient(method='ascii', port=sys.argv[1], timeout=30, baudrate=9600)
+parser = argparse.ArgumentParser()
+parser.add_argument("tty", help="tty to use for RS485 communication",
+                    type=str)
+parser.add_argument("token", help="ThingsBoard token",
+                    type=str)
+parser.add_argument("period", help="RS485 polling period",
+                    type=str)
+args = parser.parse_args()
+
+client = ModbusClient(method='ascii', port=args.tty, timeout=30, baudrate=9600)
 client.connect()
 
 while True:
@@ -19,14 +29,14 @@ while True:
         pressure = int(data.getRegister(2)) + int(data.getRegister(3)) / 100.0
         humidity = int(data.getRegister(4)) + int(data.getRegister(5)) / 100.0
 
-        print('temperature: {}, humidity: {}, pressure: {}'.format(temperature, humidity, pressure))
+        print('temperature: {}, humidity: {}'.format(temperature, humidity))
 
-        telemetry = { 'temp': temperature, 'rh': humidity, 'press': pressure }
+        telemetry = { 'temp': temperature, 'rh': humidity }
 
         mqtt.single(topic='v1/devices/me/telemetry',
                 payload=json.dumps(telemetry),
                 hostname='demo.thingsboard.io',
-                auth = {'username':sys.argv[2], 'password':''}
+                auth = {'username':args.token, 'password':''}
         )
 
-        time.sleep(int(sys.argv[3]))
+        time.sleep(int(args.period))
