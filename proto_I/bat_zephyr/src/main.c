@@ -17,6 +17,9 @@
 #include <stdlib.h>
 #include <i2c.h>
 #include <logging/log.h>
+#include <stm32f1xx_ll_adc.h>
+#include <stm32f1xx_ll_rcc.h>
+#include <stm32f1xx_ll_bus.h>
 
 #define MODBUS_BAT_SLAVE_ADDRESS 		42
 
@@ -278,6 +281,82 @@ static void uart1_irq_cb(void *user_data)
 static struct drv_ctx modbus_ctx;
 static struct drv_buf modbus_safe_data;
 
+static int hs_adc_configure(void)
+{
+	LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_ADC1);
+	LL_RCC_SetADCClockSource(LL_RCC_ADC_CLKSRC_PCLK2_DIV_4);
+
+	printf("starting ADC\n");
+
+	LL_ADC_Enable(				ADC1);
+
+	/*
+	 * Wait until ADC is completely ready.
+	 * TODO: find out precise value of tSTAB for ADC stabilization. See datasheet.
+	 */
+	k_sleep(100);
+
+	LL_ADC_StartCalibration(		ADC1);
+	while (LL_ADC_IsCalibrationOnGoing(	ADC1) == 1) { };
+
+	printf("ADC calibration complete\n");
+
+	/* Enable temperature sensor and voltage ref sampling */
+	LL_ADC_SetCommonPathInternalCh(__LL_ADC_COMMON_INSTANCE(ADC1),
+			LL_ADC_PATH_INTERNAL_VREFINT | LL_ADC_PATH_INTERNAL_TEMPSENSOR);
+
+	LL_ADC_SetDataAlignment(		ADC1, LL_ADC_DATA_ALIGN_RIGHT);
+	LL_ADC_SetSequencersScanMode(		ADC1, LL_ADC_SEQ_SCAN_DISABLE);
+	LL_ADC_REG_SetTriggerSource(		ADC1, LL_ADC_REG_TRIG_SOFTWARE);
+	LL_ADC_REG_SetSequencerLength(		ADC1, LL_ADC_REG_SEQ_SCAN_DISABLE);
+	LL_ADC_REG_SetSequencerDiscont(		ADC1, LL_ADC_REG_SEQ_DISCONT_DISABLE);
+	LL_ADC_REG_SetSequencerRanks(		ADC1, LL_ADC_REG_RANK_1, LL_ADC_CHANNEL_TEMPSENSOR);
+	LL_ADC_REG_SetContinuousMode(		ADC1, LL_ADC_REG_CONV_SINGLE);
+	LL_ADC_REG_SetDMATransfer(		ADC1, LL_ADC_REG_DMA_TRANSFER_NONE);
+
+	/* TODO: tune this value? */
+	LL_ADC_SetChannelSamplingTime(		ADC1, LL_ADC_CHANNEL_TEMPSENSOR, LL_ADC_SAMPLINGTIME_239CYCLES_5);
+
+	LL_ADC_SetAnalogWDMonitChannels(	ADC1, LL_ADC_AWD_DISABLE);
+
+	/* Start spare conversion. For some reason, it helps with incorrect MCU temp sensor readings at the beginning */
+	LL_ADC_Enable(				ADC1);
+
+	return 0;
+}
+
+static int hs_adc_read_mcu_temp(u32_t *mcu_temp)
+{
+	printf("getting ADC data from internal sensor\n");
+
+	LL_ADC_REG_StartConversionSWStart(ADC1);
+
+	while (LL_ADC_IsActiveFlag_EOS(ADC1) == 0) {
+		k_sleep(1000);
+	};
+
+	u32_t data = LL_ADC_REG_ReadConversionData12(ADC1);
+
+	/* Temperature sensor voltage at 25C, from datasheet, in mV */
+	const u32_t v25 = 1430;
+	/* Average slope, from datasheet, uV per C */
+	const u32_t avg_slope = 4300;
+
+	/* Temperature sensor readings, in mV. Note Vref = 3300 mV */
+	u32_t v_sense = 3300 * data / 4096;
+
+	/*
+	 * Final temperature value. Note scaling (V25 - Vsense) from mV to uV
+	 * Divident in uV, divisor in uV/C, thus resulting value is in C.
+	 */
+	u32_t temp = (1000 * (v25 - v_sense) / avg_slope) + 25;
+
+	printf("adc data: %#x, mV: %d, temp: %d\n", data, v_sense, temp);
+
+	*mcu_temp = temp;
+	return 0;
+}
+
 void main(void)
 {
 	struct device *sensor_dev = device_get_binding("SENSOR_CHIP");
@@ -289,8 +368,8 @@ void main(void)
 
 	int rc;
 
-	printk("Hello World! %s\n", CONFIG_BOARD);
-	printk("Starting BAT test for Happy Snail RH/T subproject\n");
+	printf("Hello World! %s\n", CONFIG_BOARD);
+	printf("Starting BAT test for Happy Snail RH/T subproject\n");
 
 	if (sensor_dev == NULL) {
 		printf("could not get SI7006 device\n");
@@ -307,12 +386,21 @@ void main(void)
 		return;
 	}
 
+	printf("sensor_dev %p name %s\n", sensor_dev, sensor_dev->config->name);
+
+	/* Enable internal ADC for getting MCU temp */
+
+	rc = hs_adc_configure();
+	if (rc < 0) {
+		printf("failed to configure ADC");
+	}
+
+	/* Enable RS485 and configure UART */
+
 	rc = gpio_pin_configure(gpioa, 5, GPIO_DIR_OUT);
 	if (rc < 0) {
 		printf("failed to configure GPIO pin\n");
 	}
-
-	printf("sensor_dev %p name %s\n", sensor_dev, sensor_dev->config->name);
 
 	struct uart_config uart1_cfg = {
 		.baudrate	= 9600,
@@ -353,14 +441,16 @@ void main(void)
 			if (modbus_parsed.complete) {
 				struct sensor_value temp = {0};
 				struct sensor_value humidity = {0};
-				struct sensor_value press = {0};
+				u32_t mcu_temp;
 
 				sensor_sample_fetch(sensor_dev);
 				sensor_channel_get(sensor_dev, SENSOR_CHAN_AMBIENT_TEMP, &temp);
 				sensor_channel_get(sensor_dev, SENSOR_CHAN_HUMIDITY, &humidity);
+				hs_adc_read_mcu_temp(&mcu_temp);
 
-				printf("temp: %d.%06d; press: %d.%06d; humidity: %d.%06d\n",
-					temp.val1, temp.val2, press.val1, press.val2,
+				printf("temp: %d.%06d; mcu_temp: %d; humidity: %d.%06d\n",
+					temp.val1, temp.val2,
+					mcu_temp,
 					humidity.val1, humidity.val2);
 
 				bool retry = true;
@@ -373,7 +463,7 @@ void main(void)
 							MODBUS_BAT_SLAVE_ADDRESS, MODBUS_FN_READ_HOLDING_REG,
 							12, /* Total bytes to be transmitted */
 							(s16_t)temp.val1, 	(s16_t)(temp.val2 / 10000), /* Convert 10^-6 fixed-point value to 10^-2 */
-							(s16_t)press.val1,	(s16_t)(press.val2 / 10000), /* Convert 10^-6 fixed-point value to 10^-2 */
+							(s16_t)mcu_temp,	(s16_t)(0), /* Convert 10^-6 fixed-point value to 10^-2 */
 							(s16_t)humidity.val1,	(s16_t)(humidity.val2 / 10000) /* Convert 10^-6 fixed-point value to 10^-2 */
 						);
 
