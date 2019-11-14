@@ -40,7 +40,7 @@ F 4 "WL1E476M05011BB" H 8300 2750 50  0001 C CNN "Component"
 	1    0    0    -1  
 $EndComp
 Text Notes 2700 4375 0    50   ~ 0
-- SS capacitor picked to have common value, which results in 4 ms slow start.\n- Divider for EN pin picked to match common\nresistor values. It results in Vstart ~~ 7V, Vend ~~ 7.65\n- Vsense with given resistor divider will result in Vou ~~ 4.43V\n   TODO: pick values for 5V\n- Inductor ~~22uH (higher is better for ripple, smaller - for AC current), I peak ~~ 1.2A\n- Compensation network values chosen based on TI's DC-DC design tool. TODO: re-validate freq. compensation
+- SS capacitor picked to have common value, which results in 4 ms slow start.\n- Divider for EN pin picked to match common\nresistor values. It results in Vstart ~~ 7V, Vend ~~ 7.65\n- Vsense with given resistor divider will result in Vout ~~ 4.43V\n   Vsense with 12K/2K2 will result in Vout ~~ 5.16V\n   TODO: pick values for exact 5V\n- Inductor ~~22uH (higher is better for ripple, smaller - for AC current), I peak ~~ 1.2A\n- Compensation network values chosen based on TI's DC-DC design tool. TODO: re-validate freq. compensation
 $Bitmap
 Pos 4350 6400
 Scale 1.000000
@@ -1586,10 +1586,10 @@ F 4 "RS-03K2201FT " H 8000 2950 50  0001 C CNN "Component"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR01
+L power:GND #PWR?
 U 1 1 5D23AAE3
 P 7350 2850
-F 0 "#PWR01" H 7350 2600 50  0001 C CNN
+F 0 "#PWR?" H 7350 2600 50  0001 C CNN
 F 1 "GND" H 7355 2677 50  0000 C CNN
 F 2 "" H 7350 2850 50  0001 C CNN
 F 3 "" H 7350 2850 50  0001 C CNN
@@ -1606,10 +1606,10 @@ Wire Wire Line
 	7350 2750 7350 2850
 Connection ~ 7350 2750
 $Comp
-L power:GND #PWR05
+L power:GND #PWR?
 U 1 1 5D23AAE4
 P 6900 3650
-F 0 "#PWR05" H 6900 3400 50  0001 C CNN
+F 0 "#PWR?" H 6900 3400 50  0001 C CNN
 F 1 "GND" H 6905 3477 50  0000 C CNN
 F 2 "" H 6900 3650 50  0001 C CNN
 F 3 "" H 6900 3650 50  0001 C CNN
@@ -1650,12 +1650,12 @@ Connection ~ 7350 2300
 Wire Wire Line
 	6400 4000 6400 2950
 $Comp
-L power:GND #PWR03
+L power:GND #PWR?
 U 1 1 5D23AAE5
 P 8000 3250
-AR Path="/5D23AAE5" Ref="#PWR03"  Part="1" 
+AR Path="/5D23AAE5" Ref="#PWR?"  Part="1" 
 AR Path="/5D1E3AAF/5D23AAE5" Ref="#PWR?"  Part="1" 
-F 0 "#PWR03" H 8000 3000 50  0001 C CNN
+F 0 "#PWR?" H 8000 3000 50  0001 C CNN
 F 1 "GND" H 8005 3077 50  0000 C CNN
 F 2 "" H 8000 3250 50  0001 C CNN
 F 3 "" H 8000 3250 50  0001 C CNN
@@ -1822,10 +1822,10 @@ Connection ~ 4200 2750
 Wire Wire Line
 	4700 3350 4450 3350
 $Comp
-L power:GND #PWR04
+L power:GND #PWR?
 U 1 1 5D23AAE2
 P 4450 3400
-F 0 "#PWR04" H 4450 3150 50  0001 C CNN
+F 0 "#PWR?" H 4450 3150 50  0001 C CNN
 F 1 "GND" H 4455 3227 50  0000 C CNN
 F 2 "" H 4450 3400 50  0001 C CNN
 F 3 "" H 4450 3400 50  0001 C CNN
@@ -1839,10 +1839,10 @@ Wire Wire Line
 Wire Wire Line
 	4200 2750 5100 2750
 $Comp
-L power:GND #PWR02
+L power:GND #PWR?
 U 1 1 5D23AAE1
 P 3550 3100
-F 0 "#PWR02" H 3550 2850 50  0001 C CNN
+F 0 "#PWR?" H 3550 2850 50  0001 C CNN
 F 1 "GND" H 3555 2927 50  0000 C CNN
 F 2 "" H 3550 3100 50  0001 C CNN
 F 3 "" H 3550 3100 50  0001 C CNN
