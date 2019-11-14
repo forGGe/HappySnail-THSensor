@@ -1,0 +1,39 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ADUM5241
+D Dual-Channel Isolators with isoPower, Integrated DC-to-DC Converter, 50 mW
+K ADUM5241 isolator dc/dc
+F https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf
+$ENDCMP
+#
+$CMP EL357N-G
+D 4 PIN SOP PHOTOTRANSISTOR PHOTOCOUPLER, EL357N-G Series
+K optoisolator EL357N isolator optocoupler
+F http://www.everlight.com/file/ProductFile/EL357N-G.pdf
+$ENDCMP
+#
+$CMP LTV-357T
+D DC Optocoupler, Vce 35V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F https://www.buerklin.com/medias/sys_master/download/download/h91/ha0/8892020588574.pdf
+$ENDCMP
+#
+$CMP LTV-358T
+D DC Optocoupler, Vce 120V, CTR 50%, SO-4
+K NPN DC Optocoupler
+F http://optoelectronics.liteon.com/upload/download/DS70-2001-022/S_110_LTV-358T%2020140520.pdf
+$ENDCMP
+#
+$CMP STM32_BluePill
+D STM32F103 board
+K STM32F103,BluePill
+F https://wiki.stm32duino.com/index.php?title=Blue_Pill
+$ENDCMP
+#
+$CMP TPS54331
+D 3-A, 28-V Input, Step Down DC-DC Converter
+K swithing,power,supply,buck
+F http://www.ti.com/lit/ds/symlink/tps54331.pdf
+$ENDCMP
+#
+#End Doc Library
