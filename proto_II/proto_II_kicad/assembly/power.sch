@@ -40,6 +40,7 @@ F 2 "Project:CDRH74" H 7425 3100 50  0001 C CNN
 F 3 "~" H 7425 3100 50  0001 C CNN
 F 4 "CDRH74NP-220MC-B" H 7425 3100 50  0001 C CNN "MPN"
 F 5 "Sumida" H 7425 3100 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 7425 3100 50  0001 C CNN "Config"
 	1    7425 3100
 	0    -1   -1   0   
 $EndComp
@@ -61,6 +62,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6475 4250 50  0
 F 3 "~" H 6475 4250 50  0001 C CNN
 F 4 "RC0603JR-1010KL" H 6475 4250 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 6475 4250 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6475 4250 50  0001 C CNN "Config"
 	1    6475 4250
 	1    0    0    -1  
 $EndComp
@@ -76,6 +78,7 @@ F 2 "Capacitor_SMD:CP_Elec_6.3x5.7" H 8075 3550 50  0001 C CNN
 F 3 "~" H 8075 3550 50  0001 C CNN
 F 4 "EZV470M16RC" H 8075 3550 50  0001 C CNN "MPN"
 F 5 "Hitano" H 8075 3550 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 8075 3550 50  0001 C CNN "Config"
 	1    8075 3550
 	1    0    0    -1  
 $EndComp
@@ -147,6 +150,7 @@ F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5475 3250 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/tps54331.pdf" H 5575 3750 50  0001 C CNN
 F 4 "TPS54331" H 5475 3600 50  0001 C CNN "MPN"
 F 5 "Texas Instruments" H 5475 3600 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 5475 3600 50  0001 C CNN "Config"
 	1    5475 3600
 	1    0    0    -1  
 $EndComp
@@ -197,6 +201,7 @@ F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6475 3950 50  
 F 3 "~" H 6475 3950 50  0001 C CNN
 F 4 "CL31B103KBCNNNC" H 6475 3950 50  0001 C CNN "MPN"
 F 5 "Samsung" H 6475 3950 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6475 3950 50  0001 C CNN "Config"
 	1    6475 3950
 	1    0    0    -1  
 $EndComp
@@ -211,6 +216,7 @@ F 2 "Capacitor_SMD:CP_Elec_6.3x5.7" H 3325 3700 50  0001 C CNN
 F 3 "~" H 3325 3700 50  0001 C CNN
 F 4 "EZV100M50RC" H 3325 3700 50  0001 C CNN "MPN"
 F 5 "Hitano" H 3325 3700 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 3325 3700 50  0001 C CNN "Config"
 	1    3325 3700
 	1    0    0    -1  
 $EndComp
@@ -224,6 +230,7 @@ F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4475 4000 50  
 F 3 "~" H 4475 4000 50  0001 C CNN
 F 4 "CL31B103KBCNNNC" H 4475 4000 50  0001 C CNN "MPN"
 F 5 "Samsung" H 4475 4000 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 4475 4000 50  0001 C CNN "Config"
 	1    4475 4000
 	1    0    0    -1  
 $EndComp
@@ -240,6 +247,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6875 4100 50  
 F 3 "~" H 6875 4100 50  0001 C CNN
 F 4 "CL10C100JB8NNNC" H 6875 4100 50  0001 C CNN "MPN"
 F 5 "Samsung" H 6875 4100 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6875 4100 50  0001 C CNN "Config"
 	1    6875 4100
 	1    0    0    -1  
 $EndComp
@@ -253,6 +261,7 @@ F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3975 3700 50  0
 F 3 "~" H 3975 3700 50  0001 C CNN
 F 4 "RC1206FR-07220KL" H 3975 3700 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 3975 3700 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 3975 3700 50  0001 C CNN "Config"
 	1    3975 3700
 	1    0    0    -1  
 $EndComp
@@ -281,6 +290,7 @@ F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3975 4000 50  0
 F 3 "~" H 3975 4000 50  0001 C CNN
 F 4 "RC1206FR-0747KL" H 3975 4000 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 3975 4000 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 3975 4000 50  0001 C CNN "Config"
 	1    3975 4000
 	1    0    0    -1  
 $EndComp
@@ -322,6 +332,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7775 3350 50  0
 F 3 "~" H 7775 3350 50  0001 C CNN
 F 4 "RC0603JR-1010KL" H 7775 3350 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 7775 3350 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 7775 3350 50  0001 C CNN "Config"
 	1    7775 3350
 	1    0    0    -1  
 $EndComp
@@ -335,6 +346,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4625 3250 50  
 F 3 "~" H 4625 3250 50  0001 C CNN
 F 4 "0603B104K500NT" H 4625 3250 50  0001 C CNN "MPN"
 F 5 "Fenghua Electronics" H 4625 3250 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 4625 3250 50  0001 C CNN "Config"
 	1    4625 3250
 	1    0    0    -1  
 $EndComp
@@ -354,6 +366,7 @@ F 2 "Capacitor_SMD:CP_Elec_6.3x5.7" H 3025 3700 50  0001 C CNN
 F 3 "~" H 3025 3700 50  0001 C CNN
 F 4 "EZV100M50RC" V 2925 3700 50  0001 C CNN "MPN"
 F 5 "Hitano" H 3025 3700 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 3025 3700 50  0001 C CNN "Config"
 	1    3025 3700
 	1    0    0    -1  
 $EndComp
@@ -368,6 +381,7 @@ F 3 "~" V 7125 3350 50  0001 C CNN
 F 4 "3A" V 7175 3450 50  0000 C CNN "Current rating"
 F 5 "SS26-E3/52T" V 7175 3025 50  0001 C CNN "MPN"
 F 6 "Vishay" H 7125 3350 50  0001 C CNN "MFR"
+F 7 "-noiso_5v" H 7125 3350 50  0001 C CNN "Config"
 	1    7125 3350
 	0    1    1    0   
 $EndComp
@@ -498,6 +512,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7775 3750 50  0
 F 3 "~" H 7775 3750 50  0001 C CNN
 F 4 "RS-03K2201FT" H 7775 3750 50  0001 C CNN "MPN"
 F 5 "FENGHUA" H 7775 3750 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 7775 3750 50  0001 C CNN "Config"
 	1    7775 3750
 	1    0    0    -1  
 $EndComp
@@ -611,6 +626,7 @@ F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3625 3700 50  
 F 3 "~" H 3625 3700 50  0001 C CNN
 F 4 "CL31B103KBCNNNC" H 3625 3700 50  0001 C CNN "MPN"
 F 5 "Samsung" H 3625 3700 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 3625 3700 50  0001 C CNN "Config"
 	1    3625 3700
 	1    0    0    -1  
 $EndComp

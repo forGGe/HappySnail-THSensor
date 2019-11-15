@@ -153,6 +153,7 @@ F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4600 4375 50  
 F 3 "~" H 4600 4375 50  0001 C CNN
 F 4 "1206F105Z160CT" H 4600 4375 50  0001 C CNN "MPN"
 F 5 "Walsin" H 4600 4375 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 4600 4375 50  0001 C CNN "Config"
 	1    4600 4375
 	1    0    0    -1  
 $EndComp
@@ -219,6 +220,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6025 4800 50  0
 F 3 "~" H 6025 4800 50  0001 C CNN
 F 4 "RS-03K2201FT" H 6025 4800 50  0001 C CNN "MPN"
 F 5 "FENGHUA" H 6025 4800 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6025 4800 50  0001 C CNN "Config"
 	1    6025 4800
 	0    1    1    0   
 $EndComp
@@ -320,6 +322,7 @@ F 2 "Package_SO:SOP-4_3.8x4.1mm_P2.54mm" H 6700 3500 50  0001 C CNN
 F 3 "http://www.everlight.com/file/ProductFile/EL357N-G.pdf" H 6625 3900 50  0001 C CNN
 F 4 "EL357N-G" H 6625 3700 50  0001 C CNN "MPN"
 F 5 "Everlight Electronics" H 6625 3700 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6625 3700 50  0001 C CNN "Config"
 	1    6625 3700
 	1    0    0    -1  
 $EndComp
@@ -333,6 +336,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6975 3950 50  0
 F 3 "~" H 6975 3950 50  0001 C CNN
 F 4 "RC0603JR-1010KL" H 6975 3950 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 6975 3950 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6975 3950 50  0001 C CNN "Config"
 	1    6975 3950
 	-1   0    0    1   
 $EndComp
@@ -350,6 +354,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6975 5150 50  0
 F 3 "~" H 6975 5150 50  0001 C CNN
 F 4 "RC0603JR-1010KL" H 6975 5150 50  0001 C CNN "MPN"
 F 5 "YAGEO" H 6975 5150 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6975 5150 50  0001 C CNN "Config"
 	1    6975 5150
 	-1   0    0    1   
 $EndComp
@@ -390,6 +395,7 @@ F 2 "Package_SO:SOP-4_3.8x4.1mm_P2.54mm" H 6700 4700 50  0001 C CNN
 F 3 "http://www.everlight.com/file/ProductFile/EL357N-G.pdf" H 6625 5100 50  0001 C CNN
 F 4 "EL357N-G" H 6625 4900 50  0001 C CNN "MPN"
 F 5 "Everlight Electronics" H 6625 4900 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6625 4900 50  0001 C CNN "Config"
 	1    6625 4900
 	1    0    0    -1  
 $EndComp
@@ -501,6 +507,7 @@ F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 6675 2150 50  0001 C CNN
 F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf" H 6625 2550 50  0001 C CNN
 F 4 "ADUM5241ARZ" H 6625 2550 50  0001 C CNN "MPN"
 F 5 "Analog Devices" H 6625 2550 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6625 2550 50  0001 C CNN "Config"
 	1    6625 2550
 	1    0    0    -1  
 $EndComp
@@ -519,6 +526,7 @@ F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4250 4375 50  
 F 3 "~" H 4250 4375 50  0001 C CNN
 F 4 "0603B104K500NT" H 4250 4375 50  0001 C CNN "MPN"
 F 5 "Fenghua Electronics" H 4250 4375 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 4250 4375 50  0001 C CNN "Config"
 	1    4250 4375
 	1    0    0    -1  
 $EndComp
@@ -599,6 +607,7 @@ F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 6025 3600 50  0
 F 3 "~" H 6025 3600 50  0001 C CNN
 F 4 "RS-03K2201FT" H 6025 3600 50  0001 C CNN "MPN"
 F 5 "FENGHUA" H 6025 3600 50  0001 C CNN "MFR"
+F 6 "-noiso_5v" H 6025 3600 50  0001 C CNN "Config"
 	1    6025 3600
 	0    1    1    0   
 $EndComp
@@ -662,6 +671,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD" H 9250 4325
 F 3 "~" H 9250 4325 50  0001 C CNN
 F 4 "C192300" H 9250 4325 50  0001 C CNN "MPN"
 F 5 "Boom Precision" H 9250 4325 50  0001 C CNN "MFR"
+F 6 "-iso_12_24v" H 9250 4325 50  0001 C CNN "Config"
 	1    9250 4325
 	1    0    0    -1  
 $EndComp
@@ -677,6 +687,7 @@ F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD" H 9250 5000
 F 3 "~" H 9250 5000 50  0001 C CNN
 F 4 "C192300" H 9250 5000 50  0001 C CNN "MPN"
 F 5 "Boom Precision" H 9250 5000 50  0001 C CNN "MFR"
+F 6 "-iso_12_24v" H 9250 5000 50  0001 C CNN "Config"
 	1    9250 5000
 	1    0    0    -1  
 $EndComp

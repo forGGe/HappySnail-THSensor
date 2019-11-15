@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/assembly/proto_II_assembly.sch</source>
-    <date>Tue 12 Nov 2019 11:54:53 PM EET</date>
+    <date>Fri 15 Nov 2019 12:58:05 AM EET</date>
     <tool>Eeschema 5.1.4</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -326,6 +326,7 @@
       <footprint>Project:DG300-5.0-02P-12</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">DEGSON ELECTRONICS</field>
         <field name="MPN">DG300-5.0-02P-12-00A(H)	</field>
       </fields>
@@ -758,6 +759,7 @@
       <footprint>Project:DG300-5.0-02P-12</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-iso_12_24v</field>
         <field name="MFR">DEGSON ELECTRONICS</field>
         <field name="MPN">DG300-5.0-02P-12-00A(H)	</field>
       </fields>
@@ -770,6 +772,7 @@
       <footprint>Project:CDRH74</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Sumida</field>
         <field name="MPN">CDRH74NP-220MC-B</field>
       </fields>
@@ -782,6 +785,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC0603JR-1010KL</field>
       </fields>
@@ -794,6 +798,7 @@
       <footprint>Capacitor_SMD:CP_Elec_6.3x5.7</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Hitano</field>
         <field name="MPN">EZV470M16RC</field>
       </fields>
@@ -818,6 +823,7 @@
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
       <datasheet>http://www.ti.com/lit/ds/symlink/tps54331.pdf</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Texas Instruments</field>
         <field name="MPN">TPS54331</field>
       </fields>
@@ -830,6 +836,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Samsung</field>
         <field name="MPN">CL31B103KBCNNNC</field>
       </fields>
@@ -842,6 +849,7 @@
       <footprint>Capacitor_SMD:CP_Elec_6.3x5.7</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Hitano</field>
         <field name="MPN">EZV100M50RC</field>
       </fields>
@@ -854,6 +862,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Samsung</field>
         <field name="MPN">CL31B103KBCNNNC</field>
       </fields>
@@ -866,6 +875,7 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Samsung</field>
         <field name="MPN">CL10C100JB8NNNC</field>
       </fields>
@@ -878,6 +888,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC1206FR-07220KL</field>
       </fields>
@@ -902,6 +913,7 @@
       <footprint>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC1206FR-0747KL</field>
       </fields>
@@ -914,6 +926,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC0603JR-1010KL</field>
       </fields>
@@ -926,6 +939,7 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Fenghua Electronics</field>
         <field name="MPN">0603B104K500NT</field>
       </fields>
@@ -938,6 +952,7 @@
       <footprint>Capacitor_SMD:CP_Elec_6.3x5.7</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Hitano</field>
         <field name="MPN">EZV100M50RC</field>
       </fields>
@@ -950,6 +965,7 @@
       <footprint>Diode_SMD:D_SMA-SMB_Universal_Handsoldering</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="Current rating">3A</field>
         <field name="MFR">Vishay</field>
         <field name="MPN">SS26-E3/52T</field>
@@ -986,6 +1002,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">FENGHUA</field>
         <field name="MPN">RS-03K2201FT</field>
       </fields>
@@ -998,6 +1015,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Samsung</field>
         <field name="MPN">CL31B103KBCNNNC</field>
       </fields>
@@ -1046,6 +1064,7 @@
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Walsin</field>
         <field name="MPN">1206F105Z160CT</field>
       </fields>
@@ -1066,6 +1085,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">FENGHUA</field>
         <field name="MPN">RS-03K2201FT</field>
       </fields>
@@ -1090,6 +1110,7 @@
       <footprint>Package_SO:SOP-4_3.8x4.1mm_P2.54mm</footprint>
       <datasheet>http://www.everlight.com/file/ProductFile/EL357N-G.pdf</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Everlight Electronics</field>
         <field name="MPN">EL357N-G</field>
       </fields>
@@ -1102,6 +1123,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC0603JR-1010KL</field>
       </fields>
@@ -1114,6 +1136,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">YAGEO</field>
         <field name="MPN">RC0603JR-1010KL</field>
       </fields>
@@ -1126,6 +1149,7 @@
       <footprint>Package_SO:SOP-4_3.8x4.1mm_P2.54mm</footprint>
       <datasheet>http://www.everlight.com/file/ProductFile/EL357N-G.pdf</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Everlight Electronics</field>
         <field name="MPN">EL357N-G</field>
       </fields>
@@ -1162,6 +1186,7 @@
       <footprint>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</footprint>
       <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Analog Devices</field>
         <field name="MPN">ADUM5241ARZ</field>
       </fields>
@@ -1174,6 +1199,7 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">Fenghua Electronics</field>
         <field name="MPN">0603B104K500NT</field>
       </fields>
@@ -1210,6 +1236,7 @@
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-noiso_5v</field>
         <field name="MFR">FENGHUA</field>
         <field name="MPN">RS-03K2201FT</field>
       </fields>
@@ -1222,6 +1249,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-iso_12_24v</field>
         <field name="MFR">Boom Precision</field>
         <field name="MPN">C192300</field>
       </fields>
@@ -1234,6 +1262,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD</footprint>
       <datasheet>~</datasheet>
       <fields>
+        <field name="Config">-iso_12_24v</field>
         <field name="MFR">Boom Precision</field>
         <field name="MPN">C192300</field>
       </fields>

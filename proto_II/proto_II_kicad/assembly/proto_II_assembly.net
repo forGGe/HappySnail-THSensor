@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/assembly/proto_II_assembly.sch)
-    (date "Tue 12 Nov 2019 11:54:47 PM EET")
+    (date "Fri 15 Nov 2019 12:55:02 AM EET")
     (tool "Eeschema 5.1.4")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -273,6 +273,7 @@
       (footprint Project:DG300-5.0-02P-12)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "DEGSON ELECTRONICS")
         (field (name MPN) "DG300-5.0-02P-12-00A(H)	"))
       (libsource (lib Connector_Generic) (part Conn_01x02) (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
@@ -637,6 +638,7 @@
       (footprint Project:DG300-5.0-02P-12)
       (datasheet ~)
       (fields
+        (field (name Config) -iso_12_24v)
         (field (name MFR) "DEGSON ELECTRONICS")
         (field (name MPN) "DG300-5.0-02P-12-00A(H)	"))
       (libsource (lib Connector_Generic) (part Conn_01x02) (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
@@ -647,6 +649,7 @@
       (footprint Project:CDRH74)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Sumida)
         (field (name MPN) CDRH74NP-220MC-B))
       (libsource (lib Device) (part L_Core_Ferrite_Small) (description "Inductor with ferrite core, small symbol"))
@@ -657,6 +660,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC0603JR-1010KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -667,6 +671,7 @@
       (footprint Capacitor_SMD:CP_Elec_6.3x5.7)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Hitano)
         (field (name MPN) EZV470M16RC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -687,6 +692,7 @@
       (footprint Package_SO:SOIC-8_3.9x4.9mm_P1.27mm)
       (datasheet http://www.ti.com/lit/ds/symlink/tps54331.pdf)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Texas Instruments")
         (field (name MPN) TPS54331))
       (libsource (lib Project) (part TPS54331) (description "3-A, 28-V Input, Step Down DC-DC Converter"))
@@ -697,6 +703,7 @@
       (footprint Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Samsung)
         (field (name MPN) CL31B103KBCNNNC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -707,6 +714,7 @@
       (footprint Capacitor_SMD:CP_Elec_6.3x5.7)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Hitano)
         (field (name MPN) EZV100M50RC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -717,6 +725,7 @@
       (footprint Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Samsung)
         (field (name MPN) CL31B103KBCNNNC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -727,6 +736,7 @@
       (footprint Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Samsung)
         (field (name MPN) CL10C100JB8NNNC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -737,6 +747,7 @@
       (footprint Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC1206FR-07220KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -757,6 +768,7 @@
       (footprint Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC1206FR-0747KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -767,6 +779,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC0603JR-1010KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -777,6 +790,7 @@
       (footprint Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Fenghua Electronics")
         (field (name MPN) 0603B104K500NT))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -787,6 +801,7 @@
       (footprint Capacitor_SMD:CP_Elec_6.3x5.7)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Hitano)
         (field (name MPN) EZV100M50RC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -797,6 +812,7 @@
       (footprint Diode_SMD:D_SMA-SMB_Universal_Handsoldering)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name "Current rating") 3A)
         (field (name MFR) Vishay)
         (field (name MPN) SS26-E3/52T))
@@ -827,6 +843,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) FENGHUA)
         (field (name MPN) RS-03K2201FT))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -837,6 +854,7 @@
       (footprint Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Samsung)
         (field (name MPN) CL31B103KBCNNNC))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -877,6 +895,7 @@
       (footprint Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) Walsin)
         (field (name MPN) 1206F105Z160CT))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -894,6 +913,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) FENGHUA)
         (field (name MPN) RS-03K2201FT))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -914,6 +934,7 @@
       (footprint Package_SO:SOP-4_3.8x4.1mm_P2.54mm)
       (datasheet http://www.everlight.com/file/ProductFile/EL357N-G.pdf)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Everlight Electronics")
         (field (name MPN) EL357N-G))
       (libsource (lib Project) (part EL357N-G) (description "4 PIN SOP PHOTOTRANSISTOR PHOTOCOUPLER, EL357N-G Series"))
@@ -924,6 +945,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC0603JR-1010KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -934,6 +956,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) YAGEO)
         (field (name MPN) RC0603JR-1010KL))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -944,6 +967,7 @@
       (footprint Package_SO:SOP-4_3.8x4.1mm_P2.54mm)
       (datasheet http://www.everlight.com/file/ProductFile/EL357N-G.pdf)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Everlight Electronics")
         (field (name MPN) EL357N-G))
       (libsource (lib Project) (part EL357N-G) (description "4 PIN SOP PHOTOTRANSISTOR PHOTOCOUPLER, EL357N-G Series"))
@@ -974,6 +998,7 @@
       (footprint Package_SO:SOIC-8_3.9x4.9mm_P1.27mm)
       (datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/ADUM5240_5241_5242.pdf)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Analog Devices")
         (field (name MPN) ADUM5241ARZ))
       (libsource (lib Project) (part ADUM5241) (description "Dual-Channel Isolators with isoPower, Integrated DC-to-DC Converter, 50 mW"))
@@ -984,6 +1009,7 @@
       (footprint Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) "Fenghua Electronics")
         (field (name MPN) 0603B104K500NT))
       (libsource (lib Device) (part C_Small) (description "Unpolarized capacitor, small symbol"))
@@ -1014,6 +1040,7 @@
       (footprint Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder)
       (datasheet ~)
       (fields
+        (field (name Config) -noiso_5v)
         (field (name MFR) FENGHUA)
         (field (name MPN) RS-03K2201FT))
       (libsource (lib Device) (part R_Small_US) (description "Resistor, small US symbol"))
@@ -1024,6 +1051,7 @@
       (footprint Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD)
       (datasheet ~)
       (fields
+        (field (name Config) -iso_12_24v)
         (field (name MFR) "Boom Precision")
         (field (name MPN) C192300))
       (libsource (lib Connector_Generic) (part Conn_02x04_Odd_Even) (description "Generic connector, double row, 02x04, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"))
@@ -1034,6 +1062,7 @@
       (footprint Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical_SMD)
       (datasheet ~)
       (fields
+        (field (name Config) -iso_12_24v)
         (field (name MFR) "Boom Precision")
         (field (name MPN) C192300))
       (libsource (lib Connector_Generic) (part Conn_02x04_Odd_Even) (description "Generic connector, double row, 02x04, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"))
