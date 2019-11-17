@@ -47,7 +47,7 @@ enum modbus_fn
 	MODBUS_FN_READ_HOLDING_REG		= 0x3,
 };
 
-enum modbus_state
+enum modbus_states
 {
 	MODBUS_EMPTY,
 	MODBUS_WAIT_CR,
@@ -59,7 +59,7 @@ struct modbus_frame
 {
 	u8_t data[256];
 	u8_t cnt;
-	enum modbus_state state;
+	enum modbus_states state;
 };
 
 struct modbus_data
