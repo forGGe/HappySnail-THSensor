@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <zephyr/types.h>
+#include <sys/ring_buffer.h>
 
 enum modbus_state
 {
@@ -27,10 +28,8 @@ enum modbus_op
 
 struct modbus_ctx
 {
+	struct ring_buf 	*data;
 	enum modbus_state	state;
-	u8_t			*buf;
-	size_t			capacity;
-	size_t			fill;
 	u16_t			addr;
 };
 
@@ -63,7 +62,7 @@ struct modbus_processor
 
 #define MODBUS_DATA_FOLLOWS		2
 #define MODBUS_NEED_MORE		1
-#define MODBUS_COMPLETE			0
+#define MODBUS_OK			0
 #define MODBUS_ERR			-1
 #define MODBUS_ERR_FRAME		-2
 #define MODBUS_ERR_CRC			-3
@@ -71,8 +70,8 @@ struct modbus_processor
 #define MODBUS_ERR_OP			-5
 #define MODBUS_ERR_NOMEM		-6
 
-int modbus_init(struct modbus_ctx *ctx, u16_t addr, u8_t *buf, size_t capacity);
+int modbus_init(struct modbus_ctx *ctx, u16_t addr, struct ring_buf *buf);
 int modbus_feed_byte(struct modbus_ctx *ctx, u8_t byte);
-int modbus_try_process(struct modbus_ctx *ctx, u32_t *process_buf, size_t sz);
+int modbus_try_process(struct modbus_ctx *ctx, struct modbus_processor *proc, size_t proc_sz, u32_t *proc_buf, size_t buf_sz);
 
 #endif /* MODBUS_ASCII_H_ */

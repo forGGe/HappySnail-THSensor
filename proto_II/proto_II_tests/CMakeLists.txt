@@ -5,4 +5,6 @@ include($ENV{ZEPHYR_BASE}/cmake/app/boilerplate.cmake NO_POLICY_SCOPE)
 project(integration)
 
 FILE(GLOB app_sources src/*.c)
-target_sources(app PRIVATE ${app_sources})
+target_sources(app PRIVATE ${app_sources}
+        ${CMAKE_CURRENT_LIST_DIR}/../proto_II_zephyr/src/modbus_ascii.c)
+target_include_directories(app PRIVATE ${CMAKE_CURRENT_LIST_DIR}/../proto_II_zephyr/src)
