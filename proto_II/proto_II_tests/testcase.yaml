@@ -1,0 +1,3 @@
+tests:
+  modbus:
+    tags: hs_tests
