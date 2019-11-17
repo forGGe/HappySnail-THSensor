@@ -1,0 +1,45 @@
+#include <dt-bindings/pinctrl/stm32-pinctrlf1.h>
+
+/ {
+	chosen {
+		zephyr,console = &usart2;
+		zephyr,shell-uart = &usart2;
+	};
+};
+
+&usart1 {
+	current-speed = <9600>;
+	pinctrl-0 = <&usart1_pins_a>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&usart2 {
+	current-speed = <9600>;
+	pinctrl-0 = <&usart2_pins_a>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&usart3 {
+	current-speed = <9600>;
+	pinctrl-0 = <&usart3_pins_a>;
+	pinctrl-names = "default";
+};
+
+
+/* SDA PB7, SCL PB6 */
+&i2c1 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+	si7006: si7006@40 {
+		compatible = "silabs,si7006";
+		reg = <0x40>;
+		status = "okay";
+		label = "SENSOR_CHIP";
+	};
+};
+
+&adc1 {
+	status = "okay";
+};
