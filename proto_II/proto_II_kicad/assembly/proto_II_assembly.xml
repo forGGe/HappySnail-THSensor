@@ -1695,7 +1695,7 @@
       <uri>/usr/share/kicad/library/MCU_ST_STM32F1.lib</uri>
     </library>
     <library logical="Project">
-      <uri>/home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/assembly/../common/Project.lib</uri>
+      <uri>/home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/assembly/../hs_common/Symbols.lib</uri>
     </library>
     <library logical="Switch">
       <uri>/usr/share/kicad/library/Switch.lib</uri>

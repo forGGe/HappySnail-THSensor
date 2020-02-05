@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name "Project")(type "Legacy")(uri "${KIPRJMOD}/../common/Project.lib")(options "")(descr ""))
+  (lib (name "Project")(type "Legacy")(uri "${KIPRJMOD}/../hs_common/Symbols.lib")(options "")(descr ""))
 )

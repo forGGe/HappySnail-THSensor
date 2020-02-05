@@ -289,7 +289,7 @@
       <uri>/usr/share/kicad/library/Device.lib</uri>
     </library>
     <library logical="Project">
-      <uri>/home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/sensor/../common/Project.lib</uri>
+      <uri>/home/maxpayne/projects/HappySnail/HappySnail-THSensor/proto_II/proto_II_kicad/sensor/../hs_common/Symbols.lib</uri>
     </library>
     <library logical="Sensor">
       <uri>/usr/share/kicad/library/Sensor.lib</uri>

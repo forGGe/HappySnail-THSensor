@@ -70,12 +70,12 @@
   (pad "" np_thru_hole circle (at 5.2 2.6) (size 1 1) (drill 1) (layers *.Cu *.Mask))
   (pad "" np_thru_hole circle (at -5.2 2.6) (size 1 1) (drill 1) (layers *.Cu *.Mask))
   (pad "" np_thru_hole circle (at -5.2 -2.6) (size 1 1) (drill 1) (layers *.Cu *.Mask))
-  (model "${KIPRJMOD}/../common/3d/SF2.STEP"
+  (model "${KIPRJMOD}/../hs_common/3DModels/SF2.STEP"
     (offset (xyz 2.5 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz -90 0 0))
   )
-  (model "${KIPRJMOD}/../common/3d/SF2.STEP"
+  (model "${KIPRJMOD}/../hs_common/3DModels/SF2.STEP"
     (offset (xyz -2.5 0 0))
     (scale (xyz 1 1 1))
     (rotate (xyz -90 0 0))
