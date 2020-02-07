@@ -3,4 +3,4 @@ imports:
 
 git module proto_II_common:
     url: https://github.com/forGGe/HappySnail-KiCAD_Common
-    rev: 6443d506a2b9268a70badd8d33e0ca44b3c8bf35
+    rev: 12740ee
